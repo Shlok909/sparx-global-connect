@@ -1,11 +1,15 @@
+import diagram1 from "@/assets/diagram-1.asset.json";
+import diagram2 from "@/assets/diagram-2.asset.json";
+import diagram3 from "@/assets/diagram-3.asset.json";
+
 export const SITE = {
   name: "Sparx Auto International",
   short: "Sparx Auto",
   tagline: "Global Exporter of TVS KING Spare Parts",
-  phone: "+91 98765 43210",
-  whatsapp: "919876543210",
+  phone: "+91 00000 00000",
+  whatsapp: "910000000000",
   email: "exports@sparxauto.com",
-  address: "Industrial Estate, Rajkot, Gujarat 360003, India",
+  address: "Rajkot, Gujarat, India",
 };
 
 export const whatsappLink = (msg = "Hello, I would like to inquire about TVS KING spare parts.") =>
@@ -21,3 +25,9 @@ export const CATEGORIES = [
   { slug: "steering", name: "Steering Parts", icon: "Compass", desc: "Steering columns, tie rods, drag links and complete steering kits." },
   { slug: "fuel", name: "Fuel System Parts", icon: "Fuel", desc: "CNG & LPG kits, regulators, injectors, fuel pumps and filters." },
 ] as const;
+
+export const DIAGRAMS = [
+  { id: 1, src: diagram1.url, title: "Crank Case & Engine Assembly", category: "engine", figure: "Figure 1" },
+  { id: 2, src: diagram2.url, title: "Clutch & Transmission Assembly", category: "clutch", figure: "Figure 2" },
+  { id: 3, src: diagram3.url, title: "Gearbox & Drive Train", category: "gearbox", figure: "Figure 3" },
+];
