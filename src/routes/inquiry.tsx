@@ -63,33 +63,35 @@ function InquiryPage() {
                 setSelected([]);
               }, 900);
             }}
-            className="p-8 md:p-10 rounded-2xl border border-border bg-card shadow-card-soft space-y-8"
+            className="p-8 md:p-12 rounded-3xl border border-border bg-card shadow-card-soft space-y-10"
           >
             <div className="space-y-5">
-              <h2 className="text-xl font-bold">Your details</h2>
+              <p className="eyebrow text-primary">01 — Your Details</p>
               <div className="grid md:grid-cols-2 gap-4">
-                <Input required name="name" placeholder="Full name *" />
-                <Input required name="company" placeholder="Company *" />
-                <Input required type="email" name="email" placeholder="Email *" />
-                <Input required name="phone" placeholder="Phone / WhatsApp *" />
-                <Input required name="country" placeholder="Country *" />
-                <Input name="city" placeholder="City" />
+                <Input required name="name" placeholder="Full name *" className="h-11" />
+                <Input required name="company" placeholder="Company *" className="h-11" />
+                <Input required type="email" name="email" placeholder="Email *" className="h-11" />
+                <Input required name="phone" placeholder="Phone / WhatsApp *" className="h-11" />
+                <Input required name="country" placeholder="Country *" className="h-11" />
+                <Input name="city" placeholder="City" className="h-11" />
               </div>
             </div>
 
-            <div className="space-y-4">
-              <h2 className="text-xl font-bold">Categories of interest</h2>
+            <div className="space-y-5">
+              <p className="eyebrow text-primary">02 — Categories of Interest</p>
               <div className="grid sm:grid-cols-2 gap-3">
                 {CATEGORIES.map((c) => (
                   <label
                     key={c.slug}
-                    className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${
-                      selected.includes(c.slug) ? "border-primary bg-primary/5" : "border-border hover:bg-accent/50"
+                    className={`flex items-start gap-3 p-4 rounded-xl border cursor-pointer transition-all ${
+                      selected.includes(c.slug)
+                        ? "border-primary bg-primary/5 shadow-card-soft"
+                        : "border-border hover:bg-secondary"
                     }`}
                   >
                     <Checkbox checked={selected.includes(c.slug)} onCheckedChange={() => toggle(c.slug)} />
                     <div>
-                      <p className="text-sm font-semibold">{c.name}</p>
+                      <p className="text-sm font-display font-semibold">{c.name}</p>
                       <p className="text-xs text-muted-foreground mt-0.5">{c.desc}</p>
                     </div>
                   </label>
@@ -97,17 +99,17 @@ function InquiryPage() {
               </div>
             </div>
 
-            <div className="space-y-4">
-              <h2 className="text-xl font-bold">Requirement details</h2>
-              <Input name="partNumbers" placeholder="Specific part numbers (optional)" />
+            <div className="space-y-5">
+              <p className="eyebrow text-primary">03 — Requirement Details</p>
+              <Input name="partNumbers" placeholder="Specific part numbers (optional)" className="h-11" />
               <Textarea required name="message" rows={5} placeholder="Describe quantities, target price, expected delivery..." />
             </div>
 
             <div className="flex flex-wrap gap-3 pt-2">
-              <Button type="submit" size="lg" disabled={loading} className="h-12 px-6 bg-primary-gradient text-primary-foreground hover-lift">
+              <Button type="submit" size="lg" disabled={loading} className="h-12 px-7 rounded-full bg-primary-gradient text-primary-foreground hover-lift">
                 {loading ? "Sending..." : <><Send className="mr-2 h-4 w-4" /> Submit Inquiry</>}
               </Button>
-              <Button asChild type="button" variant="outline" size="lg" className="h-12 px-6">
+              <Button asChild type="button" variant="outline" size="lg" className="h-12 px-7 rounded-full">
                 <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-2 h-4 w-4" /> Inquire on WhatsApp
                 </a>
