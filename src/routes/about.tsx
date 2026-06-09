@@ -2,14 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
-import { ShieldCheck, Target, Eye, Award, Users, Truck, ArrowRight } from "lucide-react";
+import { ShieldCheck, Users, Truck, Award, ArrowUpRight } from "lucide-react";
 import warehouse from "@/assets/about-warehouse.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Sparx Auto International" },
-      { name: "description", content: "Specialist exporter of genuine TVS KING three-wheeler CNG & LPG spare parts with worldwide distribution." },
+      { title: "About — Sparx Auto International" },
+      { name: "description", content: "Specialist exporter of genuine TVS KING three-wheeler CNG & LPG spare parts to international distributors." },
       { property: "og:title", content: "About Sparx Auto International" },
       { property: "og:description", content: "Specialist exporter of TVS KING spare parts." },
       { property: "og:url", content: "/about" },
@@ -22,87 +22,81 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <SiteLayout>
-      <section className="bg-charcoal text-white relative overflow-hidden">
+      <section className="relative bg-charcoal text-white overflow-hidden">
+        <div className="absolute inset-0 bg-hero-gradient" />
+        <div className="absolute inset-0 bg-mesh" />
         <div className="absolute inset-0 grid-bg opacity-20" />
-        <div className="absolute inset-0 bg-hero-gradient opacity-90" />
-        <div className="relative container-px mx-auto max-w-7xl py-24 md:py-32">
+        <div className="relative container-px mx-auto max-w-7xl py-32 md:py-40">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.25em] text-primary-glow font-semibold">About Us</p>
-            <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold max-w-3xl text-balance">
-              Specialist exporters of TVS KING three-wheeler spare parts
+            <p className="eyebrow text-primary-glow">About</p>
+            <h1 className="mt-8 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter max-w-4xl leading-[1.02] text-balance">
+              A focused export house for <span className="italic font-display text-primary-glow">TVS KING</span> spare parts.
             </h1>
-            <p className="mt-6 max-w-2xl text-white/70 text-lg">
-              A focused export house serving dealers and distributors with genuine, OE-grade components.
+            <p className="mt-8 max-w-2xl text-white/65 text-lg leading-relaxed">
+              We exist to do one thing exceptionally well — supply genuine TVS KING three-wheeler parts to dealers and distributors worldwide.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="container-px mx-auto max-w-7xl py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <Reveal>
-          <img src={warehouse} alt="Warehouse" loading="lazy" className="rounded-2xl shadow-elegant w-full h-[480px] object-cover" />
+      <section className="container-px mx-auto max-w-7xl py-28 grid lg:grid-cols-12 gap-16 items-center">
+        <Reveal className="lg:col-span-6">
+          <img src={warehouse} alt="" loading="lazy" className="rounded-3xl w-full h-[560px] object-cover shadow-elegant" />
         </Reveal>
-        <Reveal delay={120}>
-          <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold">Our Story</p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-balance">Engineered for export, built on trust</h2>
-          <p className="mt-5 text-muted-foreground leading-relaxed">
-            Sparx Auto International was founded with a focused mission: to deliver genuine TVS KING three-wheeler spare parts to international markets where CNG and LPG autorickshaws are critical urban transport. Over the years we have built a tight supply chain, dealer-friendly pricing structure, and an export operation that ships reliably to over 25 countries.
-          </p>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            We don&apos;t sell generic — we specialise. That means every distributor we work with gets the depth of catalogue, technical support, and reliable supply that scales their business.
-          </p>
+        <Reveal delay={120} className="lg:col-span-6">
+          <p className="eyebrow text-primary">What We Do</p>
+          <h2 className="mt-6 text-4xl md:text-5xl font-bold tracking-tighter leading-[1.05] text-balance">
+            Engineered for export, built on trust.
+          </h2>
+          <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed">
+            <p>
+              Sparx Auto International specialises in genuine TVS KING three-wheeler spare parts, with a deep focus on CNG and LPG autorickshaw applications. We supply dealers, distributors and wholesalers in international markets where reliability and consistent supply are non-negotiable.
+            </p>
+            <p>
+              We don&apos;t sell generic — we specialise. That means every distributor we work with gets depth of catalogue, technical support, and reliable supply to scale their business.
+            </p>
+          </div>
         </Reveal>
       </section>
 
       <section className="bg-subtle-gradient border-y border-border">
-        <div className="container-px mx-auto max-w-7xl py-24 grid md:grid-cols-3 gap-6">
-          {[
-            { i: Target, t: "Mission", d: "Be the most reliable global source for TVS KING three-wheeler parts." },
-            { i: Eye, t: "Vision", d: "Power affordable urban mobility across emerging markets." },
-            { i: Award, t: "Values", d: "Genuine quality, transparent pricing, long-term partnerships." },
-          ].map((b, i) => (
-            <Reveal key={b.t} delay={i * 100}>
-              <div className="p-8 rounded-2xl bg-card border border-border hover-lift h-full">
-                <div className="h-12 w-12 rounded-lg bg-primary-gradient text-primary-foreground grid place-items-center">
-                  <b.i className="h-5 w-5" />
+        <div className="container-px mx-auto max-w-7xl py-28">
+          <Reveal>
+            <p className="eyebrow text-primary">Principles</p>
+            <h2 className="mt-6 text-4xl md:text-5xl font-bold tracking-tighter leading-[1.05] text-balance max-w-3xl">
+              What sets us apart.
+            </h2>
+          </Reveal>
+          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden">
+            {[
+              { i: ShieldCheck, t: "OE-grade quality", d: "Original equipment standard across every category." },
+              { i: Users, t: "Dealer-first", d: "Margin-protected pricing for distributors." },
+              { i: Truck, t: "Global logistics", d: "End-to-end export and freight handling." },
+              { i: Award, t: "Specialist focus", d: "TVS KING three-wheelers, nothing else." },
+            ].map((f, i) => (
+              <Reveal key={f.t} delay={i * 80}>
+                <div className="bg-card p-8 h-full group hover:bg-charcoal hover:text-white transition-colors duration-500">
+                  <f.i className="h-7 w-7 text-primary group-hover:text-primary-glow transition-colors" strokeWidth={1.5} />
+                  <h3 className="mt-10 font-display font-semibold">{f.t}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground group-hover:text-white/60 transition-colors">{f.d}</p>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold">{b.t}</h3>
-                <p className="mt-2 text-muted-foreground">{b.d}</p>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="container-px mx-auto max-w-7xl py-24">
+      <section className="container-px mx-auto max-w-7xl py-28">
         <Reveal>
-          <h2 className="text-3xl md:text-4xl font-bold text-balance max-w-2xl">What sets us apart</h2>
-        </Reveal>
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { i: ShieldCheck, t: "OE Quality", d: "Original equipment grade across every category." },
-            { i: Users, t: "Dealer-First", d: "Margin-protected pricing for distributors." },
-            { i: Truck, t: "Global Logistics", d: "End-to-end export and freight handling." },
-            { i: Award, t: "Trusted Brand", d: "Years of consistent supply and zero compromise." },
-          ].map((f, i) => (
-            <Reveal key={f.t} delay={i * 80}>
-              <div className="p-6 rounded-xl bg-card border border-border hover-lift">
-                <f.i className="h-7 w-7 text-primary" />
-                <h3 className="mt-4 font-semibold">{f.t}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{f.d}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal delay={120}>
-          <div className="mt-16 p-10 rounded-2xl bg-primary-gradient text-primary-foreground flex flex-col md:flex-row gap-6 md:items-center justify-between shadow-elegant">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold">Partner with Sparx Auto</h3>
-              <p className="opacity-90 mt-2">Become an authorised distributor in your region.</p>
+          <div className="relative overflow-hidden rounded-3xl bg-primary-gradient text-primary-foreground p-12 md:p-16 flex flex-col md:flex-row gap-8 md:items-center justify-between shadow-elegant">
+            <div className="max-w-xl">
+              <h3 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight">
+                Partner with Sparx Auto.
+              </h3>
+              <p className="mt-3 opacity-90">Become an authorised distributor in your region.</p>
             </div>
-            <Button asChild size="lg" className="h-12 px-6 bg-white text-primary hover:bg-white/90">
-              <Link to="/contact">Talk to our team <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Button asChild size="lg" className="h-12 px-7 rounded-full bg-white text-primary hover:bg-white/90">
+              <Link to="/contact">Talk to our team <ArrowUpRight className="ml-1.5 h-4 w-4" /></Link>
             </Button>
           </div>
         </Reveal>
