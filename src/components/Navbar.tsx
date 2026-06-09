@@ -28,38 +28,37 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-all duration-300",
-        scrolled ? "glass shadow-card-soft" : "bg-transparent"
+        "fixed top-0 inset-x-0 z-50 transition-all duration-500",
+        scrolled ? "glass shadow-card-soft border-b border-border" : "bg-transparent"
       )}
     >
       <div className="container-px mx-auto max-w-7xl flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <img src={logo} alt={SITE.name} className="h-9 md:h-11 w-auto" />
+        <Link to="/" className="flex items-center gap-2 shrink-0" onClick={() => setOpen(false)}>
+          <img src={logo} alt={SITE.name} className="h-8 md:h-10 w-auto" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-0.5 rounded-full glass px-1.5 py-1.5 border border-border/50">
           {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              className="px-4 py-2 text-sm font-medium text-foreground/75 hover:text-foreground transition-colors relative group"
-              activeProps={{ className: "text-primary" }}
+              className="px-4 py-1.5 text-xs uppercase tracking-[0.18em] font-semibold text-foreground/65 hover:text-foreground rounded-full transition-colors"
+              activeProps={{ className: "text-primary-foreground bg-charcoal" }}
             >
               {item.label}
-              <span className="absolute left-4 right-4 -bottom-0.5 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <a
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 rounded-md bg-primary-gradient text-primary-foreground px-4 py-2 text-sm font-semibold hover-lift shadow-card-soft"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-charcoal text-white px-5 py-2.5 text-xs uppercase tracking-[0.15em] font-semibold hover:bg-primary transition-colors"
           >
-            <MessageCircle className="h-4 w-4" />
+            <MessageCircle className="h-3.5 w-3.5" />
             WhatsApp
           </a>
           <button
