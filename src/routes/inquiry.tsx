@@ -33,17 +33,18 @@ function InquiryPage() {
 
   return (
     <SiteLayout>
-      <section className="bg-charcoal text-white relative overflow-hidden">
+      <section className="relative bg-charcoal text-white overflow-hidden">
         <div className="absolute inset-0 bg-hero-gradient" />
-        <div className="absolute inset-0 grid-bg opacity-25" />
-        <div className="relative container-px mx-auto max-w-7xl py-20 md:py-28">
+        <div className="absolute inset-0 bg-mesh" />
+        <div className="absolute inset-0 grid-bg opacity-20" />
+        <div className="relative container-px mx-auto max-w-7xl py-28 md:py-36">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.25em] text-primary-glow font-semibold">Inquiry Form</p>
-            <h1 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-bold max-w-3xl text-balance">
-              Request a quotation
+            <p className="eyebrow text-primary-glow">Inquiry</p>
+            <h1 className="mt-8 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter max-w-4xl leading-[1.02] text-balance">
+              Request a quotation.
             </h1>
-            <p className="mt-5 max-w-2xl text-white/70 text-lg">
-              Tell us what parts you need. We&apos;ll reply within 24 hours with pricing, MOQ and lead time.
+            <p className="mt-6 max-w-2xl text-white/65 text-lg">
+              Tell us what parts you need — we&apos;ll reply within 24 hours with pricing, MOQ and lead time.
             </p>
           </Reveal>
         </div>
