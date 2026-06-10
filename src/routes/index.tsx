@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { CATEGORIES, DIAGRAMS, whatsappLink } from "@/lib/site";
 import heroImg from "@/assets/hero-parts.jpg";
 import warehouseImg from "@/assets/about-warehouse.jpg";
+import exportBg from "@/assets/export-bg.jpg";
+import ctaBg from "@/assets/cta-bg.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,17 +43,17 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-charcoal text-white min-h-[92vh] flex items-center">
+    <section className="relative overflow-hidden bg-charcoal text-white min-h-[82vh] flex items-start pt-10 md:pt-14">
       <div className="absolute inset-0">
-        <img src={heroImg} alt="" className="h-full w-full object-cover opacity-40" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-hero-gradient" />
-        <div className="absolute inset-0 bg-mesh" />
-        <div className="absolute inset-0 grid-bg opacity-25" />
+        <img src={heroImg} alt="" className="h-full w-full object-cover opacity-55" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/20" />
+        <div className="absolute inset-0 bg-mesh opacity-70" />
+        <div className="absolute inset-0 grid-bg opacity-20" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-charcoal to-transparent" />
       </div>
 
-      <div className="relative container-px mx-auto max-w-7xl w-full py-32 md:py-40">
-        <div className="grid lg:grid-cols-12 gap-12 items-end">
+      <div className="relative container-px mx-auto max-w-7xl w-full py-16 md:py-20">
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-8">
             <Reveal className="eyebrow text-primary-glow">Exporting Worldwide</Reveal>
             <Reveal delay={120}>
