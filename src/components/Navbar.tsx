@@ -32,9 +32,14 @@ export function Navbar() {
         scrolled ? "glass shadow-card-soft border-b border-border" : "bg-transparent"
       )}
     >
-      <div className="container-px mx-auto max-w-7xl flex items-center justify-between h-16 md:h-20">
+      <div className="container-px mx-auto max-w-7xl flex items-center justify-between h-20 md:h-24">
         <Link to="/" className="flex items-center gap-2 shrink-0" onClick={() => setOpen(false)}>
-          <img src={logo} alt={SITE.name} className="h-8 md:h-10 w-auto" />
+          <span className={cn(
+            "inline-flex items-center rounded-full transition-all",
+            scrolled ? "bg-transparent p-0" : "bg-white/95 shadow-card-soft px-3 py-1.5"
+          )}>
+            <img src={logo} alt={SITE.name} className="h-11 md:h-14 w-auto" />
+          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-0.5 rounded-full glass px-1.5 py-1.5 border border-border/50">

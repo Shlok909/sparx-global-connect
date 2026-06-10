@@ -5,7 +5,9 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { CATEGORIES, DIAGRAMS, whatsappLink } from "@/lib/site";
 import heroImg from "@/assets/hero-parts.jpg";
-import warehouseImg from "@/assets/about-warehouse.jpg";
+
+import exportBg from "@/assets/export-bg.jpg";
+import ctaBg from "@/assets/cta-bg.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,17 +43,17 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-charcoal text-white min-h-[92vh] flex items-center">
+    <section className="relative overflow-hidden bg-charcoal text-white min-h-[82vh] flex items-start pt-10 md:pt-14">
       <div className="absolute inset-0">
-        <img src={heroImg} alt="" className="h-full w-full object-cover opacity-40" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-hero-gradient" />
-        <div className="absolute inset-0 bg-mesh" />
-        <div className="absolute inset-0 grid-bg opacity-25" />
+        <img src={heroImg} alt="" className="h-full w-full object-cover opacity-55" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/20" />
+        <div className="absolute inset-0 bg-mesh opacity-70" />
+        <div className="absolute inset-0 grid-bg opacity-20" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-charcoal to-transparent" />
       </div>
 
-      <div className="relative container-px mx-auto max-w-7xl w-full py-32 md:py-40">
-        <div className="grid lg:grid-cols-12 gap-12 items-end">
+      <div className="relative container-px mx-auto max-w-7xl w-full py-16 md:py-20">
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-8">
             <Reveal className="eyebrow text-primary-glow">Exporting Worldwide</Reveal>
             <Reveal delay={120}>
@@ -276,8 +278,10 @@ function WhyUs() {
   ];
   return (
     <section className="relative bg-charcoal text-white overflow-hidden noise">
-      <div className="absolute inset-0 grid-bg opacity-20" />
-      <div className="absolute inset-0 bg-mesh opacity-60" />
+      <img src={exportBg} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/85 to-charcoal" />
+      <div className="absolute inset-0 grid-bg opacity-15" />
+      <div className="absolute inset-0 bg-mesh opacity-50" />
       <div className="relative container-px mx-auto max-w-7xl py-28 md:py-40">
         <Reveal className="max-w-2xl">
           <p className="eyebrow text-primary-glow">Why Sparx Auto</p>
@@ -288,7 +292,7 @@ function WhyUs() {
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
           {items.map((f, i) => (
             <Reveal key={f.t} delay={i * 60}>
-              <div className="bg-charcoal p-9 h-full group hover:bg-white/[0.04] transition-colors">
+              <div className="bg-charcoal/85 backdrop-blur-sm p-9 h-full group hover:bg-white/[0.04] transition-colors">
                 <div className="flex items-start justify-between">
                   <f.i className="h-7 w-7 text-primary-glow" strokeWidth={1.5} />
                   <span className="text-xs font-display tracking-widest text-white/30">{f.n}</span>
@@ -408,8 +412,10 @@ function ContactCTA() {
     <section className="container-px mx-auto max-w-7xl pb-28">
       <Reveal>
         <div className="relative overflow-hidden rounded-3xl bg-charcoal text-white p-12 md:p-20 noise">
-          <div className="absolute inset-0 grid-bg opacity-25" />
-          <div className="absolute inset-0 bg-mesh opacity-80" />
+          <img src={ctaBg} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/85 to-charcoal/40" />
+          <div className="absolute inset-0 grid-bg opacity-15" />
+          <div className="absolute inset-0 bg-mesh opacity-60" />
           <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/25 blur-3xl" />
           <div className="relative grid lg:grid-cols-2 gap-10 items-end">
             <div>
