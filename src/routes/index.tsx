@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { CATEGORIES, DIAGRAMS, whatsappLink } from "@/lib/site";
 import heroImg from "@/assets/hero-parts.jpg";
-import warehouseImg from "@/assets/about-warehouse.jpg";
+
 import exportBg from "@/assets/export-bg.jpg";
 import ctaBg from "@/assets/cta-bg.jpg";
 
