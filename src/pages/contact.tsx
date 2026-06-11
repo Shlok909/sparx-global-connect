@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
@@ -9,21 +8,7 @@ import { Mail, Phone, MapPin, MessageCircle, Send } from "lucide-react";
 import { SITE, whatsappLink } from "@/lib/site";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Sparx Auto International" },
-      { name: "description", content: "Get in touch with Sparx Auto International for TVS KING spare parts inquiries, dealership and bulk orders." },
-      { property: "og:title", content: "Contact Sparx Auto International" },
-      { property: "og:description", content: "Talk to our export desk." },
-      { property: "og:url", content: "/contact" },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
-  component: ContactPage,
-});
-
-function ContactPage() {
+export default function ContactPage() {
   const [loading, setLoading] = useState(false);
 
   return (

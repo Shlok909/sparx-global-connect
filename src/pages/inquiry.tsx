@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
@@ -10,21 +9,7 @@ import { Send, MessageCircle } from "lucide-react";
 import { CATEGORIES, whatsappLink } from "@/lib/site";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/inquiry")({
-  head: () => ({
-    meta: [
-      { title: "Inquiry — Sparx Auto International" },
-      { name: "description", content: "Submit a detailed inquiry for TVS KING spare parts — get a quotation within 24 hours." },
-      { property: "og:title", content: "Inquiry — Sparx Auto" },
-      { property: "og:description", content: "Submit a bulk parts inquiry." },
-      { property: "og:url", content: "/inquiry" },
-    ],
-    links: [{ rel: "canonical", href: "/inquiry" }],
-  }),
-  component: InquiryPage,
-});
-
-function InquiryPage() {
+export default function InquiryPage() {
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
 

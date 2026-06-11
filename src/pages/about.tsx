@@ -1,25 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { ShieldCheck, Users, Truck, Award, ArrowUpRight } from "lucide-react";
 import warehouse from "@/assets/about-warehouse.jpg";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Sparx Auto International" },
-      { name: "description", content: "Specialist exporter of genuine TVS KING three-wheeler CNG & LPG spare parts to international distributors." },
-      { property: "og:title", content: "About Sparx Auto International" },
-      { property: "og:description", content: "Specialist exporter of TVS KING spare parts." },
-      { property: "og:url", content: "/about" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
-  }),
-  component: AboutPage,
-});
-
-function AboutPage() {
+export default function AboutPage() {
   return (
     <SiteLayout>
       <section className="relative bg-charcoal text-white overflow-hidden">

@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
@@ -9,35 +8,18 @@ import { threeWheelers, FUEL_CATEGORIES } from "@/data/threeWheelers";
 import { TwoWheelersSection } from "@/components/TwoWheelersSection";
 import { ThreeWheelersSection } from "@/components/ThreeWheelersSection";
 
-export const Route = createFileRoute("/products")({
-  head: () => ({
-    meta: [
-      { title: "Products — Sparx Auto International" },
-      { name: "description", content: "Browse spare parts catalogues by vehicle model. Two wheelers, three wheelers and more — select your vehicle to view the full catalogue." },
-      { property: "og:title", content: "Vehicle Spare Parts Catalogues" },
-      { property: "og:description", content: "Select your vehicle model and explore the complete spare parts catalogue." },
-      { property: "og:url", content: "/products" },
-    ],
-    links: [{ rel: "canonical", href: "/products" }],
-  }),
-  component: ProductsPage,
-});
-
-function ProductsPage() {
+export default function ProductsPage() {
   const [q, setQ] = useState("");
 
   const lowerQ = q.toLowerCase();
 
-  // Filter Two Wheelers
   const filteredTwoWheelers = twoWheelers.filter(
     (v) =>
       v.name.toLowerCase().includes(lowerQ) ||
       v.description.toLowerCase().includes(lowerQ)
   );
 
-  // Filter Three Wheelers by Vehicle Name, Description OR Fuel Type
   const filteredThreeWheelers = FUEL_CATEGORIES.map((fuelType) => {
-    // If the fuel type matches the query, show all vehicles in this category
     const matchesFuelType = fuelType.toLowerCase().includes(lowerQ);
 
     const vehicles = threeWheelers[fuelType].filter(
@@ -54,7 +36,6 @@ function ProductsPage() {
 
   return (
     <SiteLayout>
-      {/* Hero */}
       <section className="relative bg-charcoal text-white overflow-hidden">
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="absolute inset-0 bg-mesh" />
@@ -86,16 +67,13 @@ function ProductsPage() {
 
       {noResults ? (
         <section className="container-px mx-auto max-w-7xl py-20">
-            <p className="text-center text-muted-foreground py-20">
-              No vehicles match your search.
-            </p>
+          <p className="text-center text-muted-foreground py-20">
+            No vehicles match your search.
+          </p>
         </section>
       ) : (
         <>
-          {/* Two Wheelers Section */}
           <TwoWheelersSection vehicles={filteredTwoWheelers} />
-          
-          {/* Three Wheelers Section */}
           <ThreeWheelersSection categories={filteredThreeWheelers} />
         </>
       )}

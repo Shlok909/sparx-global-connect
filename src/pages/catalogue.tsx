@@ -1,5 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
@@ -7,21 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Download, Search, ZoomIn, X, ArrowUpRight } from "lucide-react";
 import { CATEGORIES, DIAGRAMS } from "@/lib/site";
 
-export const Route = createFileRoute("/catalogue")({
-  head: () => ({
-    meta: [
-      { title: "Catalogue — Sparx Auto International" },
-      { name: "description", content: "Browse the Sparx Auto catalogue of TVS KING spare parts with technical exploded diagrams." },
-      { property: "og:title", content: "Sparx Auto Catalogue" },
-      { property: "og:description", content: "Technical catalogue of TVS KING three-wheeler spare parts." },
-      { property: "og:url", content: "/catalogue" },
-    ],
-    links: [{ rel: "canonical", href: "/catalogue" }],
-  }),
-  component: CataloguePage,
-});
-
-function CataloguePage() {
+export default function CataloguePage() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<string>("all");
   const [zoom, setZoom] = useState<typeof DIAGRAMS[number] | null>(null);

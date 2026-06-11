@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
@@ -44,15 +44,21 @@ export function Navbar() {
 
         <nav className="hidden lg:flex items-center gap-0.5 rounded-full glass px-1.5 py-1.5 border border-border/50">
           {NAV.map((item) => (
-            <Link
+            <NavLink
               key={item.to}
               to={item.to}
-              activeOptions={{ exact: item.to === "/" }}
-              className="px-4 py-1.5 text-xs uppercase tracking-[0.18em] font-semibold text-foreground/65 hover:text-foreground rounded-full transition-colors"
-              activeProps={{ className: "text-primary-foreground bg-charcoal" }}
+              end={item.to === "/"}
+              className={({ isActive }) =>
+                cn(
+                  "px-4 py-1.5 text-xs uppercase tracking-[0.18em] font-semibold rounded-full transition-colors",
+                  isActive
+                    ? "text-primary-foreground bg-charcoal"
+                    : "text-foreground/65 hover:text-foreground"
+                )
+              }
             >
               {item.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
@@ -80,15 +86,20 @@ export function Navbar() {
         <div className="lg:hidden glass border-t border-border animate-fade-in">
           <div className="container-px mx-auto max-w-7xl py-4 flex flex-col">
             {NAV.map((item) => (
-              <Link
+              <NavLink
                 key={item.to}
                 to={item.to}
+                end={item.to === "/"}
                 onClick={() => setOpen(false)}
-                className="py-3 text-sm font-medium border-b border-border/60 last:border-0"
-                activeProps={{ className: "text-primary" }}
+                className={({ isActive }) =>
+                  cn(
+                    "py-3 text-sm font-medium border-b border-border/60 last:border-0",
+                    isActive ? "text-primary" : ""
+                  )
+                }
               >
                 {item.label}
-              </Link>
+              </NavLink>
             ))}
           </div>
         </div>

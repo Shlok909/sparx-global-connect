@@ -1,31 +1,16 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, MessageCircle, Cog, Disc3, Settings2, CircleDot, Waypoints, Zap, Compass, Fuel, ShieldCheck, Globe2, Package, Truck, Network, Wrench, Search, FileText, Send } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { CATEGORIES, DIAGRAMS, whatsappLink } from "@/lib/site";
 import heroImg from "@/assets/hero-parts.jpg";
-
 import exportBg from "@/assets/export-bg.jpg";
 import ctaBg from "@/assets/cta-bg.jpg";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Sparx Auto International — Global Exporter of TVS KING Spare Parts" },
-      { name: "description", content: "Specialist supplier of TVS KING CNG & LPG three-wheeler spare parts to dealers, distributors and wholesalers worldwide." },
-      { property: "og:title", content: "Sparx Auto International" },
-      { property: "og:description", content: "Global exporter of genuine TVS KING three-wheeler spare parts." },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
-  component: HomePage,
-});
-
 const ICONS: Record<string, any> = { Cog, Disc3, Settings2, CircleDot, Waypoints, Zap, Compass, Fuel };
 
-function HomePage() {
+export default function HomePage() {
   return (
     <SiteLayout>
       <Hero />
