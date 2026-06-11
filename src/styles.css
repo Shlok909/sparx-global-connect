@@ -1,6 +1,5 @@
 @import "tailwindcss" source(none);
 @source "../src";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -82,8 +81,8 @@
   --gradient-subtle: linear-gradient(180deg, oklch(0.985 0.003 100) 0%, oklch(0.955 0.005 140) 100%);
   --gradient-dark: linear-gradient(180deg, oklch(0.14 0.01 200) 0%, oklch(0.09 0.008 200) 100%);
   --gradient-mesh: radial-gradient(at 20% 30%, oklch(0.32 0.08 156 / 0.18) 0%, transparent 50%),
-                   radial-gradient(at 80% 20%, oklch(0.42 0.1 156 / 0.12) 0%, transparent 50%),
-                   radial-gradient(at 50% 90%, oklch(0.5 0.08 200 / 0.1) 0%, transparent 50%);
+    radial-gradient(at 80% 20%, oklch(0.42 0.1 156 / 0.12) 0%, transparent 50%),
+    radial-gradient(at 50% 90%, oklch(0.5 0.08 200 / 0.1) 0%, transparent 50%);
 
   --shadow-elegant: 0 30px 80px -30px color-mix(in oklab, var(--primary) 25%, transparent);
   --shadow-card: 0 1px 2px rgba(15, 30, 25, 0.04), 0 12px 40px -18px rgba(15, 30, 25, 0.1);
@@ -126,15 +125,27 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
   }
-  h1, h2, h3, h4, .font-display {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
@@ -142,8 +153,14 @@
 
 @utility container-px {
   padding-inline: 1.25rem;
-  @media (min-width: 768px) { padding-inline: 2rem; }
-  @media (min-width: 1280px) { padding-inline: 4rem; }
+
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+
+  @media (min-width: 1280px) {
+    padding-inline: 4rem;
+  }
 }
 
 @utility glass {
@@ -166,26 +183,34 @@
 @utility bg-hero-gradient {
   background-image: var(--gradient-hero);
 }
+
 @utility bg-primary-gradient {
   background-image: var(--gradient-primary);
 }
+
 @utility bg-subtle-gradient {
   background-image: var(--gradient-subtle);
 }
+
 @utility shadow-elegant {
   box-shadow: var(--shadow-elegant);
 }
+
 @utility shadow-card-soft {
   box-shadow: var(--shadow-card);
 }
+
 @utility shadow-glow {
   box-shadow: var(--shadow-glow);
 }
+
 @utility bg-mesh {
   background-image: var(--gradient-mesh);
 }
+
 @utility noise {
   position: relative;
+
   &::after {
     content: "";
     position: absolute;
@@ -212,6 +237,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
+
   &::before {
     content: "";
     width: 1.75rem;
@@ -222,32 +248,71 @@
 }
 
 @keyframes float-in {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-@keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--whatsapp) 50%, transparent); }
-  70% { box-shadow: 0 0 0 18px color-mix(in oklab, var(--whatsapp) 0%, transparent); }
-  100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--whatsapp) 0%, transparent); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@utility animate-float-in { animation: float-in 0.8s var(--transition-smooth) both; }
-@utility animate-fade-in { animation: fade-in 0.6s var(--transition-smooth) both; }
-@utility animate-pulse-ring { animation: pulse-ring 2.2s infinite; }
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--whatsapp) 50%, transparent);
+  }
+
+  70% {
+    box-shadow: 0 0 0 18px color-mix(in oklab, var(--whatsapp) 0%, transparent);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--whatsapp) 0%, transparent);
+  }
+}
+
+@utility animate-float-in {
+  animation: float-in 0.8s var(--transition-smooth) both;
+}
+
+@utility animate-fade-in {
+  animation: fade-in 0.6s var(--transition-smooth) both;
+}
+
+@utility animate-pulse-ring {
+  animation: pulse-ring 2.2s infinite;
+}
 
 @utility reveal {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
 }
+
 @utility reveal-in {
   opacity: 1;
   transform: translateY(0);
@@ -255,5 +320,9 @@
 
 @utility hover-lift {
   transition: transform 0.35s var(--transition-smooth), box-shadow 0.35s var(--transition-smooth);
-  &:hover { transform: translateY(-6px); box-shadow: var(--shadow-elegant); }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-elegant);
+  }
 }
