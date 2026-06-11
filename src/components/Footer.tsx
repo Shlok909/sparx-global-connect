@@ -8,8 +8,8 @@ export function Footer() {
     <footer className="bg-charcoal text-white/80 mt-24">
       <div className="container-px mx-auto max-w-7xl py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4">
-          <div className="bg-white/95 inline-flex rounded-md p-2">
-            <img src={logo} alt={SITE.name} className="h-10 w-auto" />
+          <div className="bg-white/95 inline-flex rounded-md p-3">
+            <img src={logo} alt={SITE.name} className="h-14 w-auto" />
           </div>
           <p className="text-sm leading-relaxed text-white/60">
             Global exporter of genuine TVS KING three-wheeler spare parts. Trusted by dealers and distributors worldwide.
@@ -60,7 +60,9 @@ export function Footer() {
           <h4 className="text-white text-sm font-semibold uppercase tracking-widest mb-4">Contact</h4>
           <ul className="space-y-3 text-sm text-white/70">
             <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 text-primary-glow shrink-0" />{SITE.address}</li>
-            <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 text-primary-glow shrink-0" />{SITE.phone}</li>
+            {SITE.contacts.map((c) => (
+              <li key={c.name} className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 text-primary-glow shrink-0" /><span>{c.name}: {c.phone}</span></li>
+            ))}
             <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 text-primary-glow shrink-0" />{SITE.email}</li>
           </ul>
         </div>

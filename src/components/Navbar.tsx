@@ -36,9 +36,9 @@ export function Navbar() {
         <Link to="/" className="flex items-center gap-2 shrink-0" onClick={() => setOpen(false)}>
           <span className={cn(
             "inline-flex items-center rounded-full transition-all",
-            scrolled ? "bg-transparent p-0" : "bg-white/95 shadow-card-soft px-3 py-1.5"
+            scrolled ? "bg-transparent p-0" : "bg-white/95 shadow-card-soft px-4 py-2"
           )}>
-            <img src={logo} alt={SITE.name} className="h-11 md:h-14 w-auto" />
+            <img src={logo} alt={SITE.name} className="h-14 md:h-[4.5rem] w-auto" />
           </span>
         </Link>
 

@@ -6,10 +6,14 @@ export const SITE = {
   name: "Sparx Auto International",
   short: "Sparx Auto",
   tagline: "Global Exporter of TVS KING Spare Parts",
-  phone: "+91 00000 00000",
-  whatsapp: "910000000000",
-  email: "exports@sparxauto.com",
-  address: "Rajkot, Gujarat, India",
+  contacts: [
+    { name: "Alta Shah", phone: "+91 99707 29081" },
+    { name: "Deepak Sane", phone: "+91 89757 28083" },
+  ],
+  phone: "+91 99707 29081",
+  whatsapp: "919970729081",
+  email: "exports.sparxauto@gmail.com",
+  address: "Nagpur, Maharashtra, India",
 };
 
 export const whatsappLink = (msg = "Hello, I would like to inquire about TVS KING spare parts.") =>

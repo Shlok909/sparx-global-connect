@@ -47,13 +47,30 @@ function ContactPage() {
 
       <section className="container-px mx-auto max-w-7xl py-24 grid lg:grid-cols-5 gap-10">
         <div className="lg:col-span-2 space-y-3">
+          {/* Named phone contacts */}
+          {SITE.contacts.map((contact, i) => (
+            <Reveal key={contact.name} delay={i * 60}>
+              <a
+                href={`tel:${contact.phone}`}
+                className="flex gap-5 p-6 rounded-2xl border border-border bg-card hover:bg-secondary transition-colors group"
+              >
+                <div className="h-11 w-11 rounded-xl bg-primary/10 text-primary grid place-items-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <Phone className="h-5 w-5" strokeWidth={1.75} />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">{contact.name}</p>
+                  <p className="mt-1 font-display font-semibold">{contact.phone}</p>
+                </div>
+              </a>
+            </Reveal>
+          ))}
+          {/* Email, WhatsApp, Address */}
           {[
-            { i: Phone, t: "Phone", v: SITE.phone, href: `tel:${SITE.phone}` },
             { i: Mail, t: "Email", v: SITE.email, href: `mailto:${SITE.email}` },
             { i: MessageCircle, t: "WhatsApp", v: "Chat with our team", href: whatsappLink() },
             { i: MapPin, t: "Address", v: SITE.address },
           ].map((c, i) => (
-            <Reveal key={c.t} delay={i * 60}>
+            <Reveal key={c.t} delay={(SITE.contacts.length + i) * 60}>
               <a
                 href={c.href}
                 target={c.href?.startsWith("http") ? "_blank" : undefined}
