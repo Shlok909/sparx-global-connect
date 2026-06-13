@@ -83,7 +83,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="lg:hidden glass border-t border-border animate-fade-in">
+        <div className="lg:hidden bg-background border-t border-border animate-fade-in shadow-lg">
           <div className="container-px mx-auto max-w-7xl py-4 flex flex-col">
             {NAV.map((item) => (
               <NavLink
