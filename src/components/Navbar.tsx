@@ -1,7 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
-import logo from "@/assets/logo.png";
+import { SparxWordmark } from "@/components/SparxWordmark";
 import { SITE, whatsappLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -29,16 +29,23 @@ export function Navbar() {
     <header
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-500",
-        scrolled ? "glass shadow-card-soft border-b border-border" : "bg-transparent"
+        scrolled ? "glass shadow-card-soft border-b border-border" : "bg-transparent",
       )}
     >
       <div className="container-px mx-auto max-w-7xl flex items-center justify-between h-20 md:h-24">
-        <Link to="/" className="flex items-center gap-2 shrink-0" onClick={() => setOpen(false)}>
-          <span className={cn(
-            "inline-flex items-center rounded-full transition-all",
-            scrolled ? "bg-transparent p-0" : "bg-white/95 shadow-card-soft px-4 py-2"
-          )}>
-            <img src={logo} alt={SITE.name} className="h-14 md:h-[4.5rem] w-auto" />
+        <Link
+          to="/"
+          aria-label={`${SITE.name} home`}
+          className="flex items-center gap-2 shrink-0"
+          onClick={() => setOpen(false)}
+        >
+          <span
+            className={cn(
+              "inline-flex items-center rounded-full transition-all",
+              scrolled ? "bg-transparent p-0" : "bg-white/95 shadow-card-soft px-4 py-2",
+            )}
+          >
+            <SparxWordmark compact />
           </span>
         </Link>
 
@@ -53,7 +60,7 @@ export function Navbar() {
                   "px-4 py-1.5 text-xs uppercase tracking-[0.18em] font-semibold rounded-full transition-colors",
                   isActive
                     ? "text-primary-foreground bg-charcoal"
-                    : "text-foreground/65 hover:text-foreground"
+                    : "text-foreground/65 hover:text-foreground",
                 )
               }
             >
@@ -94,7 +101,7 @@ export function Navbar() {
                 className={({ isActive }) =>
                   cn(
                     "py-3 text-sm font-medium border-b border-border/60 last:border-0",
-                    isActive ? "text-primary" : ""
+                    isActive ? "text-primary" : "",
                   )
                 }
               >

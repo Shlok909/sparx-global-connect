@@ -1,0 +1,61 @@
+.sparx-wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  color: #085096;
+  white-space: nowrap;
+}
+
+.sparx-wordmark-text {
+  font:
+    italic 900 69px/0.87 "Arial Black",
+    "Inter",
+    sans-serif;
+  letter-spacing: -5px;
+  transform: skewX(-7deg);
+}
+
+.sparx-wordmark-text > span {
+  background: linear-gradient(132deg, #085096 49%, #f98615 50%, #ff8000 72%, #085096 73%);
+  color: transparent;
+  background-clip: text;
+}
+
+.sparx-wordmark-tagline {
+  margin-top: 7px;
+  color: #15253c;
+  font:
+    italic 600 16px/1.2 "Barlow Condensed",
+    "Arial Narrow",
+    "Bahnschrift",
+    sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.sparx-wordmark--compact .sparx-wordmark-text {
+  font-size: 40px;
+  letter-spacing: -3px;
+}
+
+.sparx-wordmark--compact .sparx-wordmark-tagline {
+  margin-top: 5px;
+  font-size: 10px;
+  letter-spacing: 0;
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .sparx-wordmark--compact .sparx-wordmark-text {
+    font-size: 34px;
+  }
+  .sparx-wordmark--compact .sparx-wordmark-tagline {
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .sparx-wordmark--compact .sparx-wordmark-text {
+    font-size: 48px;
+  }
+  .sparx-wordmark--compact .sparx-wordmark-tagline {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,1795 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700;1,800&display=swap");
+
+/* All rules are scoped to the landing page. Shared pages keep their original styles. */
+.sparx-home {
+  --landing-blue: #06457c;
+  --landing-navy: #06335b;
+  --landing-orange: #ff8000;
+  --landing-cyan: #15b3cc;
+  --landing-display: "Barlow Condensed", "Arial Narrow", "Bahnschrift", sans-serif;
+  background: #fff;
+  color: #162c43;
+  font-family: "Barlow", "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: clip;
+}
+.sparx-home *,
+.sparx-home *::before,
+.sparx-home *::after {
+  box-sizing: border-box;
+}
+.sparx-home h1,
+.sparx-home h2,
+.sparx-home h3,
+.sparx-home p {
+  margin: 0;
+}
+.sparx-home h1,
+.sparx-home h2,
+.sparx-home h3 {
+  font-family: var(--landing-display);
+  letter-spacing: 0;
+}
+.sparx-home a {
+  color: inherit;
+  text-decoration: none;
+}
+.sparx-home button,
+.sparx-home input {
+  font: inherit;
+}
+.sparx-home button {
+  cursor: pointer;
+}
+.sparx-home button svg,
+.sparx-home a svg {
+  flex-shrink: 0;
+}
+.sparx-home :is(a, button, input):focus-visible {
+  outline: 3px solid #ff9d36;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+.sparx-home :is(section, main, [id]) {
+  scroll-margin-top: 74px;
+}
+.sparx-home .landing-container {
+  width: min(100% - 80px, 1320px);
+  margin-inline: auto;
+}
+.sparx-home .landing-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.sparx-home .landing-skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 12px;
+  left: 12px;
+  background: white;
+  color: var(--landing-blue);
+  padding: 12px 22px;
+  transform: translateY(-150%);
+}
+.sparx-home .landing-skip-link:focus {
+  transform: translateY(0);
+}
+.sparx-home .landing-masthead {
+  min-height: 119px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  align-items: center;
+  gap: 36px;
+  padding-block: 13px;
+}
+.sparx-home .landing-logo-link {
+  width: fit-content;
+}
+.sparx-home .landing-wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  color: #085096;
+}
+.sparx-home .landing-wordmark-text {
+  font:
+    italic 900 69px/0.87 "Arial Black",
+    "Inter",
+    sans-serif;
+  letter-spacing: -5px;
+  transform: skewX(-7deg);
+}
+.sparx-home .landing-wordmark-text > span {
+  background: linear-gradient(132deg, #085096 49%, #f98615 50%, #ff8000 72%, #085096 73%);
+  color: transparent;
+  background-clip: text;
+}
+.sparx-home .landing-wordmark-tagline {
+  margin-top: 7px;
+  color: #15253c;
+  font: italic 600 16px/1.2 var(--landing-display);
+  letter-spacing: 0.3px;
+}
+.sparx-home .landing-company {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #075197;
+  white-space: nowrap;
+}
+.sparx-home .landing-company strong {
+  font:
+    800 54px/1 "Barlow",
+    sans-serif;
+  letter-spacing: 2.5px;
+}
+.sparx-home .landing-company > span {
+  font: 700 23px/1.35 var(--landing-display);
+}
+.sparx-home .landing-header-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-self: end;
+  color: #075197;
+  font: 600 19px/1.25 var(--landing-display);
+}
+.sparx-home .landing-header-contact > :is(a, div) {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.sparx-home .landing-header-contact > :first-child > svg {
+  color: var(--landing-cyan);
+}
+.sparx-home .landing-phone-divider {
+  padding-inline: 3px;
+}
+.sparx-home .landing-header-contact a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sparx-home .landing-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: linear-gradient(100deg, #07538e, #063765);
+  color: white;
+  box-shadow: 0 1px 0 #ffffff50;
+}
+.sparx-home .landing-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  min-height: 53px;
+}
+.sparx-home .landing-nav-links {
+  display: flex;
+  align-self: stretch;
+  align-items: stretch;
+  flex: 1;
+  justify-content: space-between;
+  gap: 0;
+}
+.sparx-home .landing-nav-links > a,
+.sparx-home .landing-product-nav > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-height: 53px;
+  padding: 0 13px;
+  font: 500 17px/1 var(--landing-display);
+  white-space: nowrap;
+  transition: background 0.18s;
+}
+.sparx-home .landing-nav-links > a:hover,
+.sparx-home .landing-product-nav > button:hover,
+.sparx-home .landing-product-nav > button[aria-expanded="true"] {
+  background: #ffffff17;
+}
+.sparx-home .landing-nav-links > .landing-nav-home {
+  background: var(--landing-orange);
+  padding-inline: 18px;
+}
+.sparx-home .landing-product-nav {
+  position: relative;
+  display: flex;
+}
+.sparx-home .landing-product-nav > button {
+  border: 0;
+  background: none;
+  color: inherit;
+}
+.sparx-home .is-rotated {
+  transform: rotate(180deg);
+}
+.sparx-home .landing-mobile-toggle {
+  display: none;
+}
+.sparx-home .landing-product-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 290px;
+  padding: 8px;
+  border: 1px solid #e0e8ee;
+  border-radius: 0 0 8px 8px;
+  background: white;
+  color: var(--landing-navy);
+  box-shadow: 0 15px 40px #052f5629;
+}
+.sparx-home .landing-product-menu a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 13px;
+  min-height: 54px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.sparx-home .landing-product-menu a:hover {
+  background: #edf5fb;
+}
+.sparx-home .landing-product-menu a:last-child {
+  border-top: 1px solid #dce7ef;
+  margin-top: 5px;
+  font-size: 14px;
+}
+.sparx-home .landing-product-menu small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #607183;
+}
+.sparx-home .landing-search {
+  position: relative;
+  width: 208px;
+  flex-shrink: 0;
+}
+.sparx-home .landing-search form {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 30px;
+  color: var(--landing-navy);
+}
+.sparx-home .landing-search input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 8px 0 8px 15px;
+  font:
+    400 13px/1.3 "Barlow",
+    sans-serif;
+  outline: none;
+  border-radius: 30px;
+}
+.sparx-home .landing-search input::placeholder {
+  color: #64717f;
+}
+.sparx-home .landing-search form:focus-within {
+  outline: 3px solid #ffae59;
+  outline-offset: 2px;
+}
+.sparx-home .landing-search input:focus-visible {
+  outline: none;
+}
+.sparx-home .landing-search form button {
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 35px;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+}
+.sparx-home .landing-search-results {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: min(390px, 100vw - 32px);
+  background: #fff;
+  color: #162c43;
+  border: 1px solid #dae6ef;
+  border-radius: 9px;
+  box-shadow: 0 15px 50px #062e5940;
+  overflow: hidden;
+}
+.sparx-home .landing-search-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 8px 8px 16px;
+  border-bottom: 1px solid #e2eaf1;
+  background: #f4f8fb;
+  font-size: 13px;
+  font-weight: 600;
+}
+.sparx-home .landing-search-heading button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: transparent;
+}
+.sparx-home .landing-search-results > p,
+.sparx-home .landing-no-results {
+  padding: 16px;
+  font-size: 14px;
+}
+.sparx-home .landing-search-results ul {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  max-height: min(390px, 55dvh);
+  overflow-y: auto;
+}
+.sparx-home .landing-search-results li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.sparx-home .landing-search-results li a:hover {
+  background: #eff6fb;
+}
+.sparx-home .landing-search-results small {
+  display: block;
+  margin-top: 2px;
+  color: #657586;
+  font-size: 12px;
+  font-weight: 400;
+}
+.sparx-home .landing-search-all,
+.sparx-home .landing-no-results a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--landing-blue);
+  font-weight: 600;
+  padding: 13px 16px;
+  border-top: 1px solid #e0e8ef;
+}
+.sparx-home .landing-no-results a {
+  padding: 12px 0 0;
+  border: none;
+}
+.sparx-home .landing-hero {
+  position: relative;
+  background: #092f4c;
+  color: white;
+  isolation: isolate;
+}
+.sparx-home .landing-hero-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+.sparx-home .landing-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #0028406b, #06335710 53%, transparent 66%);
+}
+.sparx-home .landing-hero-inner {
+  position: relative;
+  min-height: clamp(510px, 42vw, 625px);
+  padding-top: clamp(36px, 4vw, 63px);
+  padding-bottom: 48px;
+}
+.sparx-home .landing-hero-copy {
+  width: 55%;
+}
+.sparx-home .landing-hero h1 {
+  font-size: clamp(62px, 6vw, 88px);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 12px #001b3330;
+}
+.sparx-home .landing-hero h1 > span {
+  color: var(--landing-orange);
+  white-space: nowrap;
+}
+.sparx-home .landing-hero-copy > p {
+  margin-top: 15px;
+  font: italic 600 clamp(23px, 2.4vw, 33px)/1.22 var(--landing-display);
+}
+.sparx-home .landing-hero-values {
+  display: flex;
+  gap: clamp(28px, 5vw, 70px);
+  margin-top: 34px;
+}
+.sparx-home .landing-hero-values > div {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.sparx-home .landing-hero-values svg {
+  width: 37px;
+  height: 37px;
+  stroke-width: 2;
+}
+.sparx-home .landing-hero-values span {
+  font: 600 17px/1.05 var(--landing-display);
+}
+.sparx-home .landing-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+.sparx-home .landing-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  background: var(--landing-orange);
+  color: white;
+  min-height: 53px;
+  padding: 10px 31px;
+  border-radius: 30px;
+  font: 600 21px/1.2 var(--landing-display);
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.sparx-home .landing-button:hover {
+  background: #e96d00;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px #ee730025;
+}
+.sparx-home .landing-hero-catalogue {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 7px;
+  font: 500 16px/1.2 var(--landing-display);
+  border-bottom: 1px solid #ffffff80;
+}
+.sparx-home .landing-hero-catalogue:hover {
+  color: #ffab57;
+  border-color: #ffab57;
+}
+.sparx-home .landing-hero-script {
+  position: absolute;
+  left: 49%;
+  top: 33px;
+  color: #e4f4ff;
+  font:
+    italic 500 clamp(27px, 2.8vw, 42px)/1.07 Georgia,
+    serif;
+  transform: rotate(-12deg);
+  letter-spacing: -1.5px;
+  text-shadow: 0 1px 12px #ffffff66;
+}
+.sparx-home .landing-hero-script > span {
+  margin-left: 20px;
+}
+.sparx-home .landing-hero-script > i {
+  display: block;
+  width: 150px;
+  height: 11px;
+  margin: 8px auto;
+  border-top: 4px solid #f78a16;
+  border-radius: 80% 100% 0 0;
+  transform: rotate(-4deg);
+}
+.sparx-home .landing-india {
+  position: absolute;
+  right: 0;
+  top: 25px;
+  font: 700 18px/1.03 var(--landing-display);
+  color: #fff;
+  text-shadow: 0 1px 8px #00345b;
+}
+.sparx-home .landing-tricolor {
+  display: flex;
+  flex-direction: column;
+  width: 73px;
+  gap: 3px;
+  margin: 14px 0 0 auto;
+  transform: skewY(-22deg);
+}
+.sparx-home .landing-tricolor i {
+  display: block;
+  height: 6px;
+  background: #f27e13;
+  border-radius: 80% 0 80% 0;
+}
+.sparx-home .landing-tricolor i:nth-child(2) {
+  background: #fff;
+}
+.sparx-home .landing-tricolor i:nth-child(3) {
+  background: #15924c;
+}
+.sparx-home .landing-hero-signoff {
+  position: absolute;
+  bottom: 22px;
+  right: 0;
+  font:
+    italic 400 24px/1.08 Georgia,
+    serif;
+  text-align: center;
+  transform: rotate(-9deg);
+  text-shadow: 0 1px 6px #001e35;
+}
+.sparx-home .landing-hero-signoff > span {
+  margin-left: 23px;
+}
+.sparx-home .landing-products {
+  padding-top: 27px;
+  padding-bottom: 30px;
+}
+.sparx-home h2 {
+  color: var(--landing-blue);
+  font-size: 39px;
+  font-weight: 800;
+  line-height: 1.12;
+}
+.sparx-home .landing-section-heading {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 21px;
+}
+.sparx-home .landing-section-heading h2,
+.sparx-home .landing-about h2 {
+  position: relative;
+  padding-bottom: 9px;
+}
+.sparx-home .landing-section-heading h2::after,
+.sparx-home .landing-about h2::after,
+.sparx-home .landing-markets h3::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 62px;
+  height: 3px;
+  background: var(--landing-orange);
+}
+.sparx-home .landing-section-heading > p {
+  font-size: 17px;
+  font-style: italic;
+}
+.sparx-home .landing-range-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 13px;
+}
+.sparx-home .landing-range-card {
+  position: relative;
+  min-width: 0;
+  background: linear-gradient(160deg, #edf1f4, #f2f7fa);
+  border: 1px solid #eef3f6;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 13px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+.sparx-home .landing-range-card:hover {
+  transform: translateY(-5px);
+  border-color: #ffb765;
+  box-shadow: 0 9px 25px #06457c10;
+}
+.sparx-home .landing-range-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1.18;
+}
+.sparx-home .landing-range-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transition: transform 0.4s;
+}
+.sparx-home .landing-range-card:hover img {
+  transform: scale(1.045);
+}
+.sparx-home .landing-range-arrow {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #07518e;
+  background: #ffffffe6;
+  opacity: 0;
+  transform: translate(-3px, 3px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.sparx-home .landing-range-card:hover .landing-range-arrow,
+.sparx-home .landing-range-card:focus-visible .landing-range-arrow {
+  opacity: 1;
+  transform: none;
+}
+.sparx-home .landing-range-card h3 {
+  color: #06447c;
+  font-size: clamp(18px, 1.7vw, 23px);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.15;
+  padding-inline: 6px;
+}
+.sparx-home .landing-range-card > p {
+  margin: 8px 8px 0;
+  font:
+    500 13px/1.35 "Barlow",
+    sans-serif;
+}
+.sparx-home .landing-range-card > p > span {
+  font-weight: 400;
+}
+.sparx-home .landing-range-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #45617a;
+}
+.sparx-home .landing-company-section {
+  display: grid;
+  grid-template-columns: 43% 57%;
+  padding-block: 6px 23px;
+}
+.sparx-home .landing-about {
+  padding-right: 34px;
+}
+.sparx-home .landing-about h2 {
+  width: fit-content;
+  margin-bottom: 17px;
+}
+.sparx-home .landing-about p {
+  font-size: 17px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+.sparx-home .landing-about p strong {
+  font-weight: 600;
+  color: #142f4b;
+}
+.sparx-home .landing-about .landing-button {
+  margin-top: 3px;
+}
+.sparx-home .landing-advantages {
+  min-width: 0;
+  border-left: 1px solid #e4ecf1;
+  padding-left: 26px;
+}
+.sparx-home .landing-benefits {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  margin-top: 17px;
+}
+.sparx-home .landing-benefit {
+  text-align: center;
+}
+.sparx-home .landing-benefit > span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 63px;
+  height: 63px;
+  border: 1px solid #deedf4;
+  border-radius: 50%;
+  color: #0973c4;
+  box-shadow: inset 0 0 15px #edf6fc55;
+}
+.sparx-home .landing-benefit:first-child > span,
+.sparx-home .landing-benefit:last-child > span {
+  color: #13aec7;
+}
+.sparx-home .landing-benefit > p {
+  font: 500 15px/1.15 var(--landing-display);
+  margin-top: 7px;
+}
+.sparx-home .landing-markets {
+  display: flex;
+  position: relative;
+  align-items: center;
+  min-height: 235px;
+  margin-top: 5px;
+  isolation: isolate;
+  background: linear-gradient(0deg, #f3fbfd, transparent 65%);
+}
+.sparx-home .landing-markets-copy {
+  width: 29%;
+  flex-shrink: 0;
+  z-index: 1;
+  padding-top: 24px;
+}
+.sparx-home .landing-markets h3 {
+  position: relative;
+  padding-bottom: 11px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #07569b;
+  line-height: 1.04;
+}
+.sparx-home .landing-markets h3::after {
+  width: 45px;
+}
+.sparx-home .landing-markets p {
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1.28;
+  font-style: italic;
+}
+.sparx-home .landing-markets-copy > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--landing-blue);
+  margin-top: 12px;
+  min-height: 30px;
+}
+.sparx-home .landing-markets-copy > a:hover {
+  text-decoration: underline;
+}
+.sparx-home .landing-world-map {
+  width: 81%;
+  max-width: none;
+  position: absolute;
+  top: 14px;
+  left: 19%;
+  aspect-ratio: 880 / 401;
+  z-index: 0;
+}
+.sparx-home .landing-world-map > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.sparx-home .landing-map-pin {
+  position: absolute;
+  left: 64.7%;
+  top: 42.7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  color: #073c6d;
+}
+.sparx-home .landing-map-pin b {
+  font:
+    800 13px/1 "Barlow",
+    sans-serif;
+  text-shadow: 0 0 3px white;
+}
+.sparx-home .landing-markets-statement {
+  font: 700 15px/1.03 var(--landing-display);
+  color: #06427b;
+  margin-left: auto;
+  position: relative;
+  align-self: flex-end;
+  margin-bottom: 28px;
+}
+.sparx-home .landing-brands {
+  padding-bottom: 26px;
+}
+.sparx-home .landing-brands-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.sparx-home .landing-brands-heading h2 {
+  font-family: "Barlow", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.sparx-home .landing-brands-heading > span {
+  height: 1px;
+  width: 100%;
+  background: #dfe8ef;
+}
+.sparx-home .landing-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 22px;
+}
+.sparx-home .landing-brand {
+  min-height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-inline: 9px;
+  font:
+    800 24px/1 "Barlow",
+    sans-serif;
+  color: #075197;
+  transition: opacity 0.2s;
+}
+.sparx-home .landing-brand:hover {
+  opacity: 0.68;
+}
+.sparx-home .landing-brand + .landing-brand {
+  border-left: 1px solid #e6edf2;
+}
+.sparx-home .landing-brand--tvs {
+  font:
+    italic 800 33px Georgia,
+    serif;
+}
+.sparx-home .landing-brand--bajaj {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.sparx-home .landing-brand--piaggio {
+  font-size: 19px;
+  letter-spacing: -0.6px;
+}
+.sparx-home .landing-brand--tata {
+  font-size: 31px;
+}
+.sparx-home .landing-brand--ashok {
+  max-width: 108px;
+  font-size: 17px;
+  line-height: 1.1;
+}
+.sparx-home .landing-brand--mahindra {
+  color: #e31d27;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.sparx-home .landing-brand--maruti {
+  gap: 5px;
+  font-size: 14px;
+  text-align: left;
+  line-height: 1;
+  color: #15263d;
+}
+.sparx-home .landing-suzuki-mark {
+  color: #e51c31;
+  font-size: 38px;
+  font-weight: 800;
+  font-style: italic;
+}
+.sparx-home .landing-brand--hyundai {
+  font-size: 20px;
+  color: #092d80;
+}
+.sparx-home .landing-outline-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  min-height: 38px;
+  gap: 12px;
+  border: 1px solid #07579c;
+  border-radius: 25px;
+  padding: 7px 15px;
+  color: var(--landing-blue);
+  background: #fff;
+  font: 500 15px/1.2 var(--landing-display);
+}
+.sparx-home .landing-outline-button:hover {
+  color: white;
+  background: var(--landing-blue);
+}
+.sparx-home .landing-brand-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  padding: 24px;
+  margin-top: 20px;
+  border: 1px solid #dae6ef;
+  border-radius: 8px;
+  background: #f4f8fb;
+}
+.sparx-home .landing-brand-details h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--landing-blue);
+}
+.sparx-home .landing-brand-details p {
+  font-size: 14px;
+  margin-top: 6px;
+}
+.sparx-home .landing-brand-details a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--landing-blue);
+  font-size: 14px;
+  font-weight: 500;
+  min-height: 44px;
+}
+.sparx-home .landing-brand-details a:hover {
+  text-decoration: underline;
+}
+.sparx-home .landing-footer-main {
+  background: linear-gradient(105deg, #073d6c, #003461);
+  color: white;
+  padding: 30px 0;
+}
+.sparx-home .landing-footer-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1.18fr 1.22fr 0.8fr;
+  gap: 27px;
+  align-items: center;
+}
+.sparx-home .landing-footer-grid > :not(:first-child) {
+  border-left: 1px solid #20a2d3a6;
+  padding-left: 25px;
+  min-height: 105px;
+}
+.sparx-home .landing-wordmark--footer {
+  color: white;
+}
+.sparx-home .landing-wordmark--footer .landing-wordmark-text {
+  font-size: 62px;
+}
+.sparx-home .landing-wordmark--footer .landing-wordmark-text > span {
+  background: none;
+  color: white;
+}
+.sparx-home .landing-wordmark-company {
+  font:
+    700 16px/1.2 "Barlow",
+    sans-serif;
+  margin-top: 8px;
+  letter-spacing: -0.4px;
+}
+.sparx-home .landing-wordmark--footer .landing-wordmark-tagline {
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 5px;
+}
+.sparx-home .landing-footer-address {
+  display: flex;
+  gap: 12px;
+  padding-top: 5px;
+}
+.sparx-home .landing-footer-address > svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.sparx-home .landing-footer-address span {
+  font-family: var(--landing-display);
+  font-size: 17px;
+}
+.sparx-home .landing-footer-address p {
+  font-size: 15px;
+  margin-top: 5px;
+}
+.sparx-home .landing-footer-address a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: #caeafa;
+  margin-top: 10px;
+}
+.sparx-home .landing-footer-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  font: 400 17px/1.2 var(--landing-display);
+}
+.sparx-home .landing-footer-contact a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sparx-home .landing-footer-contact a:last-child {
+  color: #b4ecff;
+}
+.sparx-home .landing-footer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sparx-home .landing-footer-social > p {
+  font-family: var(--landing-display);
+  font-size: 17px;
+  margin-bottom: 11px;
+}
+.sparx-home .landing-footer-social > div {
+  display: flex;
+  gap: 10px;
+}
+.sparx-home .landing-footer-social > div > a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: #0674c4;
+  transition: transform 0.2s;
+}
+.sparx-home .landing-footer-social > div > a:hover {
+  transform: translateY(-2px);
+}
+.sparx-home .landing-footer-social > div > .landing-social-whatsapp {
+  background: #269542;
+}
+.sparx-home .landing-footer-social > a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: #caeafa;
+  margin-top: 12px;
+}
+.sparx-home .landing-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 58px;
+  font: 500 12px/1.4 var(--landing-display);
+}
+.sparx-home .landing-footer-bottom p {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+.sparx-home .landing-footer-bottom p > span {
+  border-left: 1px solid #c9d7e0;
+  padding-left: 10px;
+}
+.sparx-home .landing-mini-flag {
+  display: inline-block;
+  font-size: 22px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.sparx-home .landing-whatsapp {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 49px;
+  height: 49px;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  background: #209743;
+  z-index: 30;
+  box-shadow: 0 4px 16px #00283b2e;
+  transition: transform 0.2s;
+}
+.sparx-home .landing-whatsapp:hover {
+  transform: translateY(-3px);
+}
+
+@media (min-width: 1500px) {
+  .sparx-home .landing-hero-image {
+    object-position: center 61%;
+  }
+}
+@media (max-width: 1250px) {
+  .sparx-home .landing-container {
+    width: calc(100% - 48px);
+  }
+  .sparx-home .landing-masthead {
+    gap: 20px;
+    min-height: 108px;
+  }
+  .sparx-home .landing-wordmark-text {
+    font-size: 57px;
+  }
+  .sparx-home .landing-wordmark-tagline {
+    font-size: 14px;
+  }
+  .sparx-home .landing-company strong {
+    font-size: 47px;
+  }
+  .sparx-home .landing-company > span {
+    font-size: 20px;
+  }
+  .sparx-home .landing-header-contact {
+    font-size: 17px;
+  }
+  .sparx-home .landing-nav-inner {
+    gap: 12px;
+  }
+  .sparx-home .landing-nav-links > a,
+  .sparx-home .landing-product-nav > button {
+    padding-inline: 10px;
+    font-size: 16px;
+  }
+  .sparx-home .landing-search {
+    width: 170px;
+  }
+  .sparx-home .landing-hero-inner {
+    min-height: 530px;
+    padding-top: 46px;
+  }
+  .sparx-home .landing-hero h1 {
+    font-size: 72px;
+  }
+  .sparx-home .landing-brand-row {
+    gap: 5px;
+  }
+  .sparx-home .landing-brand {
+    padding-inline: 8px;
+  }
+  .sparx-home .landing-brand--mahindra {
+    font-size: 21px;
+  }
+  .sparx-home .landing-brand--hyundai {
+    font-size: 17px;
+  }
+  .sparx-home .landing-footer-grid {
+    gap: 20px;
+    grid-template-columns: 1.1fr 1.05fr 1.2fr 0.75fr;
+  }
+  .sparx-home .landing-footer-grid > :not(:first-child) {
+    padding-left: 20px;
+  }
+  .sparx-home .landing-wordmark--footer .landing-wordmark-text {
+    font-size: 52px;
+  }
+  .sparx-home .landing-wordmark-company {
+    font-size: 13px;
+  }
+}
+@media (max-width: 1099px) {
+  .sparx-home .landing-nav-inner {
+    min-height: 56px;
+  }
+  .sparx-home .landing-mobile-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 48px;
+    padding: 0 14px 0 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font: 500 18px/1 var(--landing-display);
+  }
+  .sparx-home .landing-search {
+    width: 245px;
+  }
+  .sparx-home .landing-search form {
+    height: 37px;
+  }
+  .sparx-home .landing-nav-links {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    max-height: calc(100dvh - 65px);
+    overflow-y: auto;
+    background: #063c6d;
+    padding: 10px 24px 18px;
+    box-shadow: 0 14px 28px #002a4829;
+  }
+  .sparx-home .landing-nav-links.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sparx-home .landing-nav-links > a,
+  .sparx-home .landing-product-nav > button {
+    justify-content: flex-start;
+    min-height: 46px;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 18px;
+    border-radius: 4px;
+  }
+  .sparx-home .landing-product-nav {
+    display: block;
+  }
+  .sparx-home .landing-product-nav > button {
+    justify-content: space-between;
+  }
+  .sparx-home .landing-product-menu {
+    position: static;
+    width: 100%;
+    background: #fff;
+    margin-block: 4px 8px;
+  }
+  .sparx-home .landing-hero-copy {
+    width: 60%;
+  }
+  .sparx-home .landing-hero h1 {
+    font-size: 67px;
+  }
+  .sparx-home .landing-hero-script {
+    left: 52%;
+    top: 34px;
+    font-size: 29px;
+  }
+  .sparx-home .landing-india {
+    font-size: 16px;
+  }
+  .sparx-home .landing-range-grid {
+    gap: 10px;
+  }
+  .sparx-home .landing-range-card h3 {
+    font-size: 19px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sparx-home .landing-range-card > p {
+    font-size: 11px;
+  }
+  .sparx-home .landing-range-action {
+    font-size: 11px;
+  }
+  .sparx-home h2 {
+    font-size: 34px;
+  }
+  .sparx-home .landing-about {
+    padding-right: 23px;
+  }
+  .sparx-home .landing-about p {
+    font-size: 15px;
+  }
+  .sparx-home .landing-advantages {
+    padding-left: 23px;
+  }
+  .sparx-home .landing-benefit > span {
+    width: 50px;
+    height: 50px;
+  }
+  .sparx-home .landing-benefit > span svg {
+    width: 26px;
+    height: 26px;
+  }
+  .sparx-home .landing-benefit > p {
+    font-size: 13px;
+  }
+  .sparx-home .landing-markets h3 {
+    font-size: 22px;
+  }
+  .sparx-home .landing-markets p {
+    font-size: 12px;
+  }
+  .sparx-home .landing-markets-copy {
+    width: 33%;
+  }
+  .sparx-home .landing-markets-statement {
+    font-size: 13px;
+  }
+  .sparx-home .landing-world-map {
+    left: 21%;
+    width: 79%;
+  }
+  .sparx-home .landing-brand-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .sparx-home .landing-brand {
+    flex: 1 0 9%;
+    font-size: 20px;
+    padding-inline: 8px;
+  }
+  .sparx-home .landing-brand--ashok,
+  .sparx-home .landing-brand--maruti {
+    font-size: 13px;
+  }
+  .sparx-home .landing-brand--hyundai,
+  .sparx-home .landing-brand--piaggio {
+    font-size: 16px;
+  }
+  .sparx-home .landing-outline-button {
+    margin-left: 10px;
+  }
+  .sparx-home .landing-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 40px;
+  }
+  .sparx-home .landing-footer-grid > :nth-child(3) {
+    border: none;
+    padding-left: 0;
+  }
+  .sparx-home .landing-footer-grid > :nth-child(2) {
+    align-items: center;
+  }
+  .sparx-home .landing-footer-bottom {
+    padding-block: 17px;
+    font-size: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+@media (max-width: 767px) {
+  .sparx-home .landing-container {
+    width: calc(100% - 36px);
+  }
+  .sparx-home .landing-masthead {
+    min-height: 94px;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    padding-block: 16px;
+  }
+  .sparx-home .landing-wordmark-text {
+    font-size: 52px;
+    letter-spacing: -4px;
+  }
+  .sparx-home .landing-wordmark-tagline {
+    font-size: 12px;
+    margin-top: 6px;
+    letter-spacing: 0;
+  }
+  .sparx-home .landing-company {
+    display: none;
+  }
+  .sparx-home .landing-header-contact {
+    font-size: 16px;
+    gap: 5px;
+  }
+  .sparx-home .landing-header-contact > :is(a, div) {
+    gap: 7px;
+  }
+  .sparx-home .landing-header-contact > :last-child {
+    display: none;
+  }
+  .sparx-home .landing-header-contact svg {
+    width: 15px;
+    height: 15px;
+  }
+  .sparx-home .landing-header-contact > div > span > span:nth-child(2) {
+    display: none;
+  }
+  .sparx-home .landing-hero-inner {
+    min-height: 680px;
+    padding-top: 33px;
+    padding-bottom: 260px;
+  }
+  .sparx-home .landing-hero-image {
+    top: auto;
+    bottom: 0;
+    height: 285px;
+    object-position: right bottom;
+  }
+  .sparx-home .landing-hero-shade {
+    background: linear-gradient(180deg, #042b49 0%, #042b49ed 24%, #042b49b0 50%, #062f4c00 78%);
+  }
+  .sparx-home .landing-hero-copy {
+    width: 100%;
+  }
+  .sparx-home .landing-hero h1 {
+    font-size: clamp(46px, 8.5vw, 65px);
+    line-height: 1;
+  }
+  .sparx-home .landing-hero-copy > p {
+    font-size: 26px;
+    margin-top: 13px;
+  }
+  .sparx-home .landing-hero-values {
+    gap: 43px;
+    margin-top: 26px;
+  }
+  .sparx-home .landing-hero-values > div {
+    gap: 8px;
+  }
+  .sparx-home .landing-hero-values svg {
+    width: 29px;
+    height: 29px;
+  }
+  .sparx-home .landing-hero-values span {
+    font-size: 15px;
+  }
+  .sparx-home .landing-hero-actions {
+    margin-top: 25px;
+    gap: 19px;
+  }
+  .sparx-home .landing-button {
+    min-height: 49px;
+    font-size: 20px;
+    padding-inline: 25px;
+    gap: 22px;
+  }
+  .sparx-home .landing-hero-script,
+  .sparx-home .landing-india {
+    display: none;
+  }
+  .sparx-home .landing-hero-signoff {
+    font-size: 21px;
+    bottom: 21px;
+    right: 8px;
+  }
+  .sparx-home .landing-products {
+    padding-top: 27px;
+    padding-bottom: 28px;
+  }
+  .sparx-home .landing-section-heading {
+    display: block;
+    margin-bottom: 18px;
+  }
+  .sparx-home h2 {
+    font-size: 34px;
+  }
+  .sparx-home .landing-section-heading > p {
+    font-size: 15px;
+    margin-top: 8px;
+  }
+  .sparx-home .landing-section-heading h2 {
+    width: fit-content;
+  }
+  .sparx-home .landing-range-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .sparx-home .landing-range-image {
+    aspect-ratio: 1.1;
+  }
+  .sparx-home .landing-range-card h3 {
+    font-size: 21px;
+    min-height: 46px;
+  }
+  .sparx-home .landing-range-card > p {
+    font-size: 12px;
+  }
+  .sparx-home .landing-range-action {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  .sparx-home .landing-range-card:last-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 46% 1fr;
+    align-items: center;
+    padding-right: 12px;
+    padding-bottom: 7px;
+    text-align: left;
+  }
+  .sparx-home .landing-range-card:last-child .landing-range-image {
+    grid-row: 1 / 4;
+  }
+  .sparx-home .landing-range-card:last-child h3 {
+    align-self: end;
+    justify-content: flex-start;
+    padding-left: 0;
+    min-height: 0;
+    padding-top: 15px;
+    font-size: 24px;
+  }
+  .sparx-home .landing-range-card:last-child > p {
+    align-self: start;
+    margin: 8px 0 0;
+  }
+  .sparx-home .landing-range-card:last-child .landing-range-action {
+    align-self: start;
+    margin-top: 6px;
+  }
+  .sparx-home .landing-company-section {
+    display: block;
+    padding-bottom: 23px;
+  }
+  .sparx-home .landing-about {
+    padding-right: 0;
+    padding-bottom: 30px;
+  }
+  .sparx-home .landing-about p {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+  .sparx-home .landing-about .landing-button {
+    margin-top: 0;
+  }
+  .sparx-home .landing-advantages {
+    padding: 26px 0 0;
+    border-left: 0;
+    border-top: 1px solid #dfe8ef;
+  }
+  .sparx-home .landing-benefits {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 14px;
+    margin-top: 22px;
+  }
+  .sparx-home .landing-benefit > span {
+    width: 61px;
+    height: 61px;
+  }
+  .sparx-home .landing-benefit > span svg {
+    width: 30px;
+    height: 30px;
+  }
+  .sparx-home .landing-benefit > p {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+  .sparx-home .landing-markets {
+    margin-top: 15px;
+    min-height: 247px;
+  }
+  .sparx-home .landing-markets-copy {
+    width: 36%;
+    padding-top: 18px;
+  }
+  .sparx-home .landing-markets h3 {
+    font-size: 25px;
+  }
+  .sparx-home .landing-markets p {
+    font-size: 13px;
+  }
+  .sparx-home .landing-world-map {
+    top: 24px;
+    left: 22%;
+    width: 78%;
+  }
+  .sparx-home .landing-markets-statement {
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+  .sparx-home .landing-brands {
+    padding-bottom: 28px;
+  }
+  .sparx-home .landing-brand-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 9px 0;
+    padding-top: 14px;
+  }
+  .sparx-home .landing-brand {
+    min-width: 0;
+    font-size: 22px;
+    padding: 7px;
+  }
+  .sparx-home .landing-brand--ashok,
+  .sparx-home .landing-brand--maruti {
+    font-size: 12px;
+  }
+  .sparx-home .landing-brand--hyundai,
+  .sparx-home .landing-brand--piaggio {
+    font-size: 14px;
+  }
+  .sparx-home .landing-brand--mahindra {
+    font-size: 18px;
+  }
+  .sparx-home .landing-brand:nth-child(5) {
+    border-left: none;
+  }
+  .sparx-home .landing-brand-row .landing-outline-button {
+    grid-column: 1 / -1;
+    justify-self: center;
+    min-height: 42px;
+    margin: 13px 0 0;
+    padding-inline: 22px;
+  }
+  .sparx-home .landing-brand-details {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px;
+  }
+  .sparx-home .landing-footer-grid {
+    gap: 25px;
+  }
+  .sparx-home .landing-footer-grid > :not(:first-child) {
+    padding-left: 15px;
+  }
+  .sparx-home .landing-footer-grid > :nth-child(3) {
+    padding-left: 0;
+  }
+  .sparx-home .landing-wordmark--footer .landing-wordmark-text {
+    font-size: 48px;
+  }
+  .sparx-home .landing-wordmark-company {
+    font-size: 12px;
+  }
+  .sparx-home .landing-wordmark--footer .landing-wordmark-tagline {
+    font-size: 12px;
+  }
+  .sparx-home .landing-footer-address {
+    gap: 7px;
+  }
+  .sparx-home .landing-footer-address > svg {
+    width: 18px;
+  }
+  .sparx-home .landing-footer-address p {
+    font-size: 14px;
+  }
+  .sparx-home .landing-footer-contact {
+    font-size: 15px;
+    gap: 10px;
+  }
+  .sparx-home .landing-footer-contact a {
+    gap: 8px;
+  }
+  .sparx-home .landing-footer-contact a span {
+    overflow-wrap: anywhere;
+  }
+  .sparx-home .landing-footer-social > div {
+    gap: 8px;
+  }
+  .sparx-home .landing-footer-bottom {
+    padding-bottom: 70px;
+    gap: 13px;
+  }
+  .sparx-home .landing-footer-bottom p {
+    row-gap: 4px;
+  }
+  .sparx-home .landing-footer-bottom p > span {
+    border: 0;
+    padding-left: 0;
+  }
+  .sparx-home .landing-whatsapp {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+@media (max-width: 420px) {
+  .sparx-home .landing-masthead {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 12px;
+    padding-block: 14px 12px;
+  }
+  .sparx-home .landing-header-contact {
+    flex-direction: row;
+    justify-self: center;
+    gap: 12px;
+    font-size: 13px;
+  }
+  .sparx-home .landing-header-contact > :is(a, div) {
+    gap: 4px;
+  }
+  .sparx-home .landing-header-contact svg {
+    width: 13px;
+    height: 13px;
+  }
+  .sparx-home .landing-nav-links {
+    padding-inline: 18px;
+  }
+  .sparx-home .landing-search {
+    width: min(215px, 66vw);
+  }
+  .sparx-home .landing-hero-inner {
+    min-height: 657px;
+    padding-top: 30px;
+  }
+  .sparx-home .landing-hero h1 {
+    font-size: clamp(40px, 11.5vw, 48px);
+  }
+  .sparx-home .landing-hero-copy > p {
+    font-size: 24px;
+  }
+  .sparx-home .landing-hero-values {
+    gap: 31px;
+  }
+  .sparx-home .landing-hero-actions {
+    gap: 16px;
+  }
+  .sparx-home .landing-button {
+    gap: 19px;
+    padding-inline: 22px;
+  }
+  .sparx-home .landing-hero-catalogue {
+    font-size: 15px;
+    gap: 4px;
+  }
+  .sparx-home .landing-range-card h3 {
+    font-size: 18px;
+  }
+  .sparx-home .landing-range-card > p {
+    font-size: 10px;
+  }
+  .sparx-home .landing-range-action {
+    font-size: 11px;
+  }
+  .sparx-home .landing-range-card:last-child h3 {
+    font-size: 22px;
+  }
+  .sparx-home .landing-range-card:last-child > p {
+    font-size: 11px;
+  }
+  .sparx-home .landing-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .sparx-home .landing-footer-grid > :not(:first-child) {
+    min-height: 0;
+    border-left: none;
+    border-top: 1px solid #38a4ce66;
+    padding: 19px 0 0;
+  }
+  .sparx-home .landing-footer-grid > :first-child {
+    justify-self: center;
+  }
+  .sparx-home .landing-footer-grid > :nth-child(2) {
+    align-items: start;
+  }
+  .sparx-home .landing-footer-contact {
+    font-size: 17px;
+  }
+  .sparx-home .landing-footer-social > div > a {
+    width: 42px;
+    height: 42px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sparx-home *,
+  .sparx-home *::before,
+  .sparx-home *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 899px) {
+  .sparx-home .landing-range-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .sparx-home .landing-range-card {
+    grid-column: span 2;
+  }
+  .sparx-home .landing-range-card:nth-child(n + 4) {
+    grid-column: span 3;
+  }
+}
+@media (min-width: 421px) and (max-width: 540px) {
+  .sparx-home .landing-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .sparx-home .landing-footer-grid > :not(:first-child) {
+    min-height: 0;
+    border-left: none;
+    border-top: 1px solid #38a4ce66;
+    padding: 19px 0 0;
+  }
+  .sparx-home .landing-footer-grid > :first-child {
+    justify-self: center;
+  }
+  .sparx-home .landing-footer-grid > :nth-child(2) {
+    align-items: start;
+  }
+  .sparx-home .landing-footer-contact {
+    font-size: 17px;
+  }
+  .sparx-home .landing-footer-social > div > a {
+    width: 42px;
+    height: 42px;
+  }
+}
