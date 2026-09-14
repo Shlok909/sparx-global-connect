@@ -61,9 +61,11 @@ export function Footer() {
           <ul className="space-y-3 text-sm text-white/70">
             <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 text-primary-glow shrink-0" />{SITE.address}</li>
             {SITE.contacts.map((c) => (
-              <li key={c.name} className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 text-primary-glow shrink-0" /><span>{c.name}: {c.phone}</span></li>
+              <li key={c.name} className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 text-primary-glow shrink-0" /><a href={`tel:${c.phone.replace(/\s/g, "")}`}>{c.name}: {c.phone}</a></li>
             ))}
-            <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 text-primary-glow shrink-0" />{SITE.email}</li>
+            {SITE.emails.map((email) => (
+              <li key={email} className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 text-primary-glow shrink-0" /><a href={`mailto:${email}`} className="min-w-0 break-words">{email}</a></li>
+            ))}
           </ul>
         </div>
       </div>

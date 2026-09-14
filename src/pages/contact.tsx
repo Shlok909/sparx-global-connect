@@ -36,7 +36,7 @@ export default function ContactPage() {
           {SITE.contacts.map((contact, i) => (
             <Reveal key={contact.name} delay={i * 60}>
               <a
-                href={`tel:${contact.phone}`}
+                href={`tel:${contact.phone.replace(/\s/g, "")}`}
                 className="flex gap-5 p-6 rounded-2xl border border-border bg-card hover:bg-secondary transition-colors group"
               >
                 <div className="h-11 w-11 rounded-xl bg-primary/10 text-primary grid place-items-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -51,11 +51,11 @@ export default function ContactPage() {
           ))}
           {/* Email, WhatsApp, Address */}
           {[
-            { i: Mail, t: "Email", v: SITE.email, href: `mailto:${SITE.email}` },
+            ...SITE.emails.map((email) => ({ i: Mail, t: "Email", v: email, href: `mailto:${email}` })),
             { i: MessageCircle, t: "WhatsApp", v: "Chat with our team", href: whatsappLink() },
             { i: MapPin, t: "Address", v: SITE.address },
           ].map((c, i) => (
-            <Reveal key={c.t} delay={(SITE.contacts.length + i) * 60}>
+            <Reveal key={c.v} delay={(SITE.contacts.length + i) * 60}>
               <a
                 href={c.href}
                 target={c.href?.startsWith("http") ? "_blank" : undefined}
@@ -67,7 +67,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">{c.t}</p>
-                  <p className="mt-1 font-display font-semibold">{c.v}</p>
+                  <p className="mt-1 font-display font-semibold break-all">{c.v}</p>
                 </div>
               </a>
             </Reveal>

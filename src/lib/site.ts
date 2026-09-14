@@ -7,12 +7,12 @@ export const SITE = {
   short: "Sparx Auto",
   tagline: "Global Exporter of TVS KING Spare Parts",
   contacts: [
-    { name: "Alta Shah", phone: "+91 99707 29081" },
-    { name: "Deepak Sane", phone: "+91 89757 28083" },
+    { name: "Alta Shah", phone: "+91 9405023595" },
+    { name: "Deepak Sane", phone: "+91 8484803595" },
   ],
-  phone: "+91 99707 29081",
-  whatsapp: "919970729081",
-  email: "exports.sparxauto@gmail.com",
+  phone: "+91 9405023595",
+  whatsapp: "919405023595",
+  emails: ["deepaksane@sparxaipl.com", "altafkshah@sparxaipl.com"],
   address: "Nagpur, Maharashtra, India",
 };
 

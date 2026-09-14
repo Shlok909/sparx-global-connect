@@ -307,10 +307,12 @@ function Header() {
               ))}
             </span>
           </div>
-          <a href={`mailto:${SITE.email}`}>
-            <Mail size={19} />
-            <span>{SITE.email}</span>
-          </a>
+          {SITE.emails.map((email) => (
+            <a href={`mailto:${email}`} key={email}>
+              <Mail size={19} />
+              <span>{email}</span>
+            </a>
+          ))}
           <Link to="/contact">
             <Globe2 size={19} />
             <span>Your global automotive partner</span>
@@ -762,10 +764,12 @@ function Footer() {
                 <span>{contact.phone}</span>
               </a>
             ))}
-            <a href={`mailto:${SITE.email}`}>
-              <Mail size={17} />
-              <span>{SITE.email}</span>
-            </a>
+            {SITE.emails.map((email) => (
+              <a href={`mailto:${email}`} key={email}>
+                <Mail size={17} />
+                <span>{email}</span>
+              </a>
+            ))}
             <Link to="/catalogue">
               <Globe2 size={17} />
               <span>Explore our parts catalogue</span>
@@ -783,7 +787,7 @@ function Footer() {
               >
                 <MessageCircle size={22} />
               </a>
-              <a href={`mailto:${SITE.email}`} aria-label="Email Sparx">
+              <a href={`mailto:${SITE.emails.join(",")}`} aria-label="Email Sparx">
                 <Mail size={21} />
               </a>
               <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} aria-label="Call Sparx">
