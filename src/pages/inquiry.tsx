@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
@@ -6,12 +7,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Send, MessageCircle } from "lucide-react";
-import { CATEGORIES, whatsappLink } from "@/lib/site";
-import { toast } from "sonner";
+import { CATEGORIES, SITE, whatsappLink } from "@/lib/site";
 
 export default function InquiryPage() {
-  const [loading, setLoading] = useState(false);
-  const [selected, setSelected] = useState<string[]>([]);
+  const [params] = useSearchParams();
+  const [draftReady, setDraftReady] = useState(false);
+  const [selected, setSelected] = useState<string[]>(() =>
+    CATEGORIES.some((c) => c.slug === params.get("category")) ? [params.get("category")!] : [],
+  );
 
   const toggle = (slug: string) =>
     setSelected((prev) => (prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug]));
@@ -29,7 +32,8 @@ export default function InquiryPage() {
               Request a quotation.
             </h1>
             <p className="mt-6 max-w-2xl text-white/65 text-lg">
-              Tell us what parts you need — we&apos;ll reply within 24 hours with pricing, MOQ and lead time.
+              Tell us what parts you need — we&apos;ll reply within 24 hours with pricing, MOQ and
+              lead time.
             </p>
           </Reveal>
         </div>
@@ -40,13 +44,19 @@ export default function InquiryPage() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              setLoading(true);
-              setTimeout(() => {
-                setLoading(false);
-                toast.success("Inquiry received. We'll send a quote within 24 hours.");
-                (e.target as HTMLFormElement).reset();
-                setSelected([]);
-              }, 900);
+              const data = new FormData(e.currentTarget);
+              const body =
+                [...data.entries()].map(([key, value]) => key + ": " + value).join("\n") +
+                "\nCategories: " +
+                selected.map((slug) => CATEGORIES.find((c) => c.slug === slug)?.name).join(", ");
+              window.location.href =
+                "mailto:" +
+                SITE.emails.join(",") +
+                "?subject=" +
+                encodeURIComponent("SPARX product inquiry") +
+                "&body=" +
+                encodeURIComponent(body);
+              setDraftReady(true);
             }}
             className="p-8 md:p-12 rounded-3xl border border-border bg-card shadow-card-soft space-y-10"
           >
@@ -74,7 +84,10 @@ export default function InquiryPage() {
                         : "border-border hover:bg-secondary"
                     }`}
                   >
-                    <Checkbox checked={selected.includes(c.slug)} onCheckedChange={() => toggle(c.slug)} />
+                    <Checkbox
+                      checked={selected.includes(c.slug)}
+                      onCheckedChange={() => toggle(c.slug)}
+                    />
                     <div>
                       <p className="text-sm font-display font-semibold">{c.name}</p>
                       <p className="text-xs text-muted-foreground mt-0.5">{c.desc}</p>
@@ -86,20 +99,44 @@ export default function InquiryPage() {
 
             <div className="space-y-5">
               <p className="eyebrow text-primary">03 — Requirement Details</p>
-              <Input name="partNumbers" placeholder="Specific part numbers (optional)" className="h-11" />
-              <Textarea required name="message" rows={5} placeholder="Describe quantities, target price, expected delivery..." />
+              <Input
+                name="partNumbers"
+                placeholder="Specific part numbers (optional)"
+                className="h-11"
+              />
+              <Textarea
+                required
+                name="message"
+                rows={5}
+                placeholder="Describe quantities, target price, expected delivery..."
+              />
             </div>
 
             <div className="flex flex-wrap gap-3 pt-2">
-              <Button type="submit" size="lg" disabled={loading} className="h-12 px-7 rounded-full bg-primary-gradient text-primary-foreground hover-lift">
-                {loading ? "Sending..." : <><Send className="mr-2 h-4 w-4" /> Submit Inquiry</>}
+              <Button
+                type="submit"
+                size="lg"
+                className="h-12 px-7 rounded-full bg-primary-gradient text-primary-foreground hover-lift"
+              >
+                <Send className="mr-2 h-4 w-4" /> Prepare Email Inquiry
               </Button>
-              <Button asChild type="button" variant="outline" size="lg" className="h-12 px-7 rounded-full">
+              <Button
+                asChild
+                type="button"
+                variant="outline"
+                size="lg"
+                className="h-12 px-7 rounded-full"
+              >
                 <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-2 h-4 w-4" /> Inquire on WhatsApp
                 </a>
               </Button>
             </div>
+            <p role="status" className="text-sm text-muted-foreground">
+              {draftReady
+                ? "Send the prepared draft from your email app to submit your inquiry. If no app opened, use WhatsApp."
+                : "Opens a draft in your email app. Send it to submit your inquiry, or contact us on WhatsApp."}
+            </p>
           </form>
         </Reveal>
       </section>

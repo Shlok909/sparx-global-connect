@@ -851,50 +851,7 @@
 .sparx-home .landing-brand + .landing-brand {
   border-left: 1px solid #e6edf2;
 }
-.sparx-home .landing-brand--tvs {
-  font:
-    italic 800 33px Georgia,
-    serif;
-}
-.sparx-home .landing-brand--bajaj {
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
-.sparx-home .landing-brand--piaggio {
-  font-size: 19px;
-  letter-spacing: -0.6px;
-}
-.sparx-home .landing-brand--tata {
-  font-size: 31px;
-}
-.sparx-home .landing-brand--ashok {
-  max-width: 108px;
-  font-size: 17px;
-  line-height: 1.1;
-}
-.sparx-home .landing-brand--mahindra {
-  color: #e31d27;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
-.sparx-home .landing-brand--maruti {
-  gap: 5px;
-  font-size: 14px;
-  text-align: left;
-  line-height: 1;
-  color: #15263d;
-}
-.sparx-home .landing-suzuki-mark {
-  color: #e51c31;
-  font-size: 38px;
-  font-weight: 800;
-  font-style: italic;
-}
-.sparx-home .landing-brand--hyundai {
-  font-size: 20px;
-  color: #092d80;
-}
+
 .sparx-home .landing-outline-button {
   display: inline-flex;
   align-items: center;
@@ -1155,12 +1112,7 @@
   .sparx-home .landing-brand {
     padding-inline: 8px;
   }
-  .sparx-home .landing-brand--mahindra {
-    font-size: 21px;
-  }
-  .sparx-home .landing-brand--hyundai {
-    font-size: 17px;
-  }
+
   .sparx-home .landing-footer-grid {
     gap: 20px;
     grid-template-columns: 1.1fr 1.05fr 1.2fr 0.75fr;
@@ -1313,14 +1265,7 @@
     font-size: 20px;
     padding-inline: 8px;
   }
-  .sparx-home .landing-brand--ashok,
-  .sparx-home .landing-brand--maruti {
-    font-size: 13px;
-  }
-  .sparx-home .landing-brand--hyundai,
-  .sparx-home .landing-brand--piaggio {
-    font-size: 16px;
-  }
+
   .sparx-home .landing-outline-button {
     margin-left: 10px;
   }
@@ -1577,17 +1522,7 @@
     font-size: 22px;
     padding: 7px;
   }
-  .sparx-home .landing-brand--ashok,
-  .sparx-home .landing-brand--maruti {
-    font-size: 12px;
-  }
-  .sparx-home .landing-brand--hyundai,
-  .sparx-home .landing-brand--piaggio {
-    font-size: 14px;
-  }
-  .sparx-home .landing-brand--mahindra {
-    font-size: 18px;
-  }
+
   .sparx-home .landing-brand:nth-child(5) {
     border-left: none;
   }
@@ -1791,5 +1726,235 @@
   .sparx-home .landing-footer-social > div > a {
     width: 42px;
     height: 42px;
+  }
+}
+.sparx-home .landing-hero--generic {
+  background: radial-gradient(ellipse at 85% 30%, #12597a, transparent 65%), #052a47;
+}
+.sparx-home .landing-generic-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 45px;
+  align-items: center;
+  padding-block: 64px;
+}
+.sparx-home .landing-hero--generic .landing-hero-copy {
+  width: 100%;
+}
+.sparx-home .landing-hero--generic h1 {
+  font-size: clamp(48px, 5.3vw, 78px);
+}
+.sparx-home .landing-hero--generic .landing-hero-eyebrow {
+  font:
+    600 11px/1.5 Inter,
+    sans-serif;
+  letter-spacing: 0.2em;
+  margin: 0 0 22px;
+  color: #9cd4e8;
+}
+.sparx-home .landing-global-visual {
+  text-align: center;
+  padding: 20px;
+}
+.sparx-home .landing-globe-orbit {
+  width: 310px;
+  height: 310px;
+  max-width: 100%;
+  margin: auto;
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 1px dashed #78bcd266;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 25px #72bed608,
+    0 0 0 55px #72bed605;
+}
+.sparx-home .landing-globe-orbit > svg {
+  width: 88%;
+  height: 88%;
+  color: #8ed4eb;
+}
+.sparx-home .landing-globe-orbit > span {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: #0c5278;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px #001c3240;
+}
+.sparx-home .landing-orbit-part {
+  top: 0;
+  left: 0;
+  transform: rotate(-9deg);
+}
+.sparx-home .landing-orbit-truck {
+  bottom: 0;
+  right: 0;
+  transform: rotate(9deg);
+}
+.sparx-home .landing-global-visual > p {
+  font: 500 29px/1.3 var(--landing-display);
+  margin-top: 40px;
+}
+.sparx-home .landing-global-visual > span {
+  display: block;
+  color: #9cc2d5;
+  font:
+    500 9px/1.6 Inter,
+    sans-serif;
+  letter-spacing: 0.12em;
+  margin-top: 10px;
+}
+.sparx-home .landing-global-visual > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font:
+    500 12px/1.5 Inter,
+    sans-serif;
+  margin-top: 24px;
+  padding: 12px 18px;
+  border: 1px solid #8ac6d966;
+  border-radius: 6px;
+}
+.sparx-home .landing-global-visual > a:hover {
+  background: #ffffff18;
+}
+
+/* Generic product range and responsive fleet illustration. */
+.sparx-home .landing-range-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.sparx-home .landing-range-card,
+.sparx-home .landing-range-card:last-child,
+.sparx-home .landing-range-card:nth-child(n + 4) {
+  grid-column: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  text-align: center;
+}
+.sparx-home .landing-range-image,
+.sparx-home .landing-range-card:last-child .landing-range-image {
+  width: 100%;
+  height: 115px;
+  aspect-ratio: auto;
+  display: grid;
+  place-items: center;
+  grid-row: auto;
+}
+.sparx-home .landing-range-symbol {
+  width: 72px;
+  height: 72px;
+  color: #0b638e;
+}
+.sparx-home .landing-range-card:last-child {
+  background: #eaf4eb;
+  border-color: #cfdfd0;
+}
+.sparx-home .landing-range-card:last-child .landing-range-symbol {
+  color: #18796e;
+}
+.sparx-home .landing-range-card h3,
+.sparx-home .landing-range-card:last-child h3 {
+  font-size: 25px;
+  min-height: 0;
+  padding: 0;
+  margin-top: 10px;
+  align-self: center;
+  justify-content: center;
+}
+.sparx-home .landing-range-card > p,
+.sparx-home .landing-range-card:last-child > p {
+  font:
+    400 13px/1.7 Inter,
+    sans-serif;
+  margin: 12px 0;
+  align-self: center;
+}
+.sparx-home .landing-range-action,
+.sparx-home .landing-range-card:last-child .landing-range-action {
+  margin-top: auto;
+  padding-top: 12px;
+  align-self: center;
+  font-size: 14px;
+}
+@media (max-width: 900px) {
+  .sparx-home .landing-generic-hero-grid {
+    gap: 20px;
+  }
+  .sparx-home .landing-globe-orbit {
+    width: 230px;
+    height: 230px;
+  }
+  .sparx-home .landing-range-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 650px) {
+  .sparx-home .landing-generic-hero-grid {
+    grid-template-columns: 1fr;
+    padding-block: 40px;
+    gap: 20px;
+  }
+  .sparx-home .landing-global-visual {
+    padding: 30px 10px 0;
+  }
+  .sparx-home .landing-globe-orbit {
+    width: 210px;
+    height: 210px;
+  }
+  .sparx-home .landing-hero--generic h1 {
+    font-size: clamp(41px, 9.5vw, 60px);
+  }
+  .sparx-home .landing-hero--generic .landing-hero-copy {
+    width: 100%;
+  }
+  .sparx-home .landing-range-grid {
+    gap: 12px;
+  }
+  .sparx-home .landing-range-card,
+  .sparx-home .landing-range-card:last-child {
+    padding: 16px 10px;
+  }
+  .sparx-home .landing-range-card h3,
+  .sparx-home .landing-range-card:last-child h3 {
+    font-size: 22px;
+  }
+  .sparx-home .landing-range-card > p,
+  .sparx-home .landing-range-card:last-child > p {
+    font-size: 11px;
+  }
+}
+@media (max-width: 360px) {
+  .sparx-home .landing-range-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 767px) {
+  .sparx-home .landing-masthead {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 12px;
+    padding-block: 14px;
+  }
+  .sparx-home .landing-header-contact {
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    gap: 6px;
+    font-size: 15px;
+    max-width: 100%;
+  }
+  .sparx-home .landing-header-contact > div > span > span:nth-child(2) {
+    display: inline;
+  }
+  .sparx-home .landing-header-contact > a {
+    overflow-wrap: anywhere;
   }
 }

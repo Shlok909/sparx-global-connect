@@ -16,10 +16,12 @@ export default function AboutPage() {
           <Reveal>
             <p className="eyebrow text-primary-glow">About</p>
             <h1 className="mt-8 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter max-w-4xl leading-[1.02] text-balance">
-              A focused export house for <span className="italic font-display text-primary-glow">TVS KING</span> spare parts.
+              Your partner in{" "}
+              <span className="italic font-display text-primary-glow">automotive</span> solutions.
             </h1>
             <p className="mt-8 max-w-2xl text-white/65 text-lg leading-relaxed">
-              We exist to do one thing exceptionally well — supply genuine TVS KING three-wheeler parts to dealers and distributors worldwide.
+              We connect dealers, distributors and fleet operators with quality spare parts and
+              actionable vehicle intelligence.
             </p>
           </Reveal>
         </div>
@@ -27,7 +29,12 @@ export default function AboutPage() {
 
       <section className="container-px mx-auto max-w-7xl py-28 grid lg:grid-cols-12 gap-16 items-center">
         <Reveal className="lg:col-span-6">
-          <img src={warehouse} alt="" loading="lazy" className="rounded-3xl w-full h-[560px] object-cover shadow-elegant" />
+          <img
+            src={warehouse}
+            alt=""
+            loading="lazy"
+            className="rounded-3xl w-full h-[560px] object-cover shadow-elegant"
+          />
         </Reveal>
         <Reveal delay={120} className="lg:col-span-6">
           <p className="eyebrow text-primary">What We Do</p>
@@ -36,10 +43,15 @@ export default function AboutPage() {
           </h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed">
             <p>
-              Sparx Auto International specialises in genuine TVS KING three-wheeler spare parts, with a deep focus on CNG and LPG autorickshaw applications. We supply dealers, distributors and wholesalers in international markets where reliability and consistent supply are non-negotiable.
+              Sparx Auto International supplies spare parts for two-wheelers, three-wheelers,
+              passenger cars and commercial vehicles. We supply dealers, distributors and
+              wholesalers in international markets where reliability and consistent supply are
+              non-negotiable.
             </p>
             <p>
-              We don&apos;t sell generic — we specialise. That means every distributor we work with gets depth of catalogue, technical support, and reliable supply to scale their business.
+              As an authorized channel partner for Intangles Lab Pvt. Ltd., we also offer advanced
+              telematics solutions for BS-IV and BS-VI vehicles. Explore predictive health
+              monitoring, OBD diagnostics, fuel and AdBlue monitoring, and vehicle tracking.
             </p>
           </div>
         </Reveal>
@@ -55,16 +67,29 @@ export default function AboutPage() {
           </Reveal>
           <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden">
             {[
-              { i: ShieldCheck, t: "OE-grade quality", d: "Original equipment standard across every category." },
+              {
+                i: ShieldCheck,
+                t: "OE-grade quality",
+                d: "Original equipment standard across every category.",
+              },
               { i: Users, t: "Dealer-first", d: "Margin-protected pricing for distributors." },
               { i: Truck, t: "Global logistics", d: "End-to-end export and freight handling." },
-              { i: Award, t: "Specialist focus", d: "TVS KING three-wheelers, nothing else." },
+              {
+                i: Award,
+                t: "Specialist focus",
+                d: "Parts expertise and connected fleet solutions.",
+              },
             ].map((f, i) => (
               <Reveal key={f.t} delay={i * 80}>
                 <div className="bg-card p-8 h-full group hover:bg-charcoal hover:text-white transition-colors duration-500">
-                  <f.i className="h-7 w-7 text-primary group-hover:text-primary-glow transition-colors" strokeWidth={1.5} />
+                  <f.i
+                    className="h-7 w-7 text-primary group-hover:text-primary-glow transition-colors"
+                    strokeWidth={1.5}
+                  />
                   <h3 className="mt-10 font-display font-semibold">{f.t}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground group-hover:text-white/60 transition-colors">{f.d}</p>
+                  <p className="mt-1.5 text-sm text-muted-foreground group-hover:text-white/60 transition-colors">
+                    {f.d}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -81,8 +106,14 @@ export default function AboutPage() {
               </h3>
               <p className="mt-3 opacity-90">Become an authorised distributor in your region.</p>
             </div>
-            <Button asChild size="lg" className="h-12 px-7 rounded-full bg-white text-primary hover:bg-white/90">
-              <Link to="/contact">Talk to our team <ArrowUpRight className="ml-1.5 h-4 w-4" /></Link>
+            <Button
+              asChild
+              size="lg"
+              className="h-12 px-7 rounded-full bg-white text-primary hover:bg-white/90"
+            >
+              <Link to="/contact">
+                Talk to our team <ArrowUpRight className="ml-1.5 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </Reveal>

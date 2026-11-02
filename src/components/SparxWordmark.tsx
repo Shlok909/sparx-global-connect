@@ -1,5 +1,4 @@
 import "./SparxWordmark.css";
-
 export function SparxWordmark({
   footer = false,
   compact = false,
@@ -8,18 +7,16 @@ export function SparxWordmark({
   compact?: boolean;
 }) {
   return (
-    <span
-      className={`sparx-wordmark landing-wordmark${footer ? " landing-wordmark--footer" : ""}${compact ? " sparx-wordmark--compact" : ""}`}
-      role="img"
-      aria-label="SPARX — Driving Trust, Powering Global Trade"
-    >
-      <span className="sparx-wordmark-text landing-wordmark-text">
-        SP<span>A</span>RX
-      </span>
-      {footer && <span className="landing-wordmark-company">AUTO INTERNATIONAL PVT. LTD.</span>}
-      <span className="sparx-wordmark-tagline landing-wordmark-tagline">
-        Driving Trust, Powering Global Trade
-      </span>
-    </span>
+    <img
+      className={
+        "sparx-logo" +
+        (compact ? " sparx-logo--compact" : "") +
+        (footer ? " sparx-logo--footer" : "")
+      }
+      src="/images/identity/sparx-logo.png"
+      width={1416}
+      height={382}
+      alt="SPARX Auto International Pvt. Ltd. — Quality auto parts. Delivered."
+    />
   );
 }

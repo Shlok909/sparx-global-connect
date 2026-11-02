@@ -9,6 +9,7 @@ const NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/products", label: "Products" },
+  { to: "/products/telematics", label: "Telematics" },
   { to: "/catalogue", label: "Catalogue" },
   { to: "/inquiry", label: "Inquiry" },
   { to: "/contact", label: "Contact" },
@@ -29,7 +30,7 @@ export function Navbar() {
     <header
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-500",
-        scrolled ? "glass shadow-card-soft border-b border-border" : "bg-transparent",
+        scrolled ? "glass shadow-card-soft border-b border-border" : "bg-background",
       )}
     >
       <div className="container-px mx-auto max-w-7xl flex items-center justify-between h-20 md:h-24">
@@ -49,12 +50,12 @@ export function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-0.5 rounded-full glass px-1.5 py-1.5 border border-border/50">
+        <nav className="hidden xl:flex items-center gap-0.5 rounded-full glass px-1.5 py-1.5 border border-border/50">
           {NAV.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
-              end={item.to === "/"}
+              end
               className={({ isActive }) =>
                 cn(
                   "px-4 py-1.5 text-xs uppercase tracking-[0.18em] font-semibold rounded-full transition-colors",
@@ -81,8 +82,10 @@ export function Navbar() {
           </a>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden p-2 rounded-md hover:bg-accent"
-            aria-label="Toggle menu"
+            className="xl:hidden p-2 rounded-md hover:bg-accent"
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            aria-expanded={open}
+            aria-controls="site-mobile-navigation"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -90,13 +93,16 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="lg:hidden bg-background border-t border-border animate-fade-in shadow-lg">
+        <div
+          id="site-mobile-navigation"
+          className="xl:hidden bg-background border-t border-border animate-fade-in shadow-lg"
+        >
           <div className="container-px mx-auto max-w-7xl py-4 flex flex-col">
             {NAV.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
-                end={item.to === "/"}
+                end
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   cn(

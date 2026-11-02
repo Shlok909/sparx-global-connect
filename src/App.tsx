@@ -1,9 +1,11 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "@/pages/index";
 import AboutPage from "@/pages/about";
 import CataloguePage from "@/pages/catalogue";
 import ContactPage from "@/pages/contact";
 import InquiryPage from "@/pages/inquiry";
+import TelematicsPage from "@/pages/telematics";
 import ProductsPage from "@/pages/products";
 import { Link } from "react-router-dom";
 
@@ -30,10 +32,19 @@ function NotFound() {
 }
 
 export default function App() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView();
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+  }, [pathname, hash]);
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
+      <Route path="/products/telematics" element={<TelematicsPage />} />
       <Route path="/products" element={<ProductsPage />} />
       <Route path="/catalogue" element={<CataloguePage />} />
       <Route path="/inquiry" element={<InquiryPage />} />

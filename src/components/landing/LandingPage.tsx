@@ -5,10 +5,8 @@ import {
   ArrowUpRight,
   ChartNoAxesCombined,
   ChevronDown,
-  Check,
   Cog,
   Diamond,
-  ExternalLink,
   Globe2,
   Handshake,
   House,
@@ -23,71 +21,11 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { twoWheelers } from "@/data/twoWheelers";
-import { threeWheelers } from "@/data/threeWheelers";
+import { PRODUCT_RANGES as RANGES } from "@/data/productRanges";
+import { TelematicsSpotlight } from "@/components/TelematicsSpotlight";
 import { CATEGORIES, SITE, whatsappLink } from "@/lib/site";
 import { SparxWordmark as Wordmark } from "@/components/SparxWordmark";
 import "./landing.css";
-
-const RANGES = [
-  {
-    name: "2 Wheeler Parts",
-    image: "two-wheeler.webp",
-    brands: "TVS · BAJAJ · HERO · HONDA",
-    note: "and more",
-    to: "/products",
-    keywords: "bike motorcycle two wheels",
-    action: "Browse vehicles",
-  },
-  {
-    name: "3 Wheeler Parts",
-    image: "three-wheeler.webp",
-    brands: "BAJAJ RE · TVS KING · PIAGGIO",
-    note: "and more",
-    to: "/products",
-    keywords: "auto rickshaw three wheels cng lpg",
-    action: "Browse vehicles",
-  },
-  {
-    name: "4 Wheeler (Car) Parts",
-    image: "four-wheeler.webp",
-    brands: "MARUTI · HYUNDAI · TATA",
-    note: "and more",
-    to: "/inquiry",
-    keywords: "four wheels passenger car",
-    action: "Enquire about parts",
-  },
-  {
-    name: "LCV & Commercial Parts",
-    image: "commercial.webp",
-    brands: "TATA · ASHOK LEYLAND · MAHINDRA",
-    note: "and more",
-    to: "/inquiry",
-    keywords: "truck light commercial vehicle lcv",
-    action: "Enquire about parts",
-  },
-  {
-    name: "Workshop Equipment",
-    image: "workshop.webp",
-    brands: "TOOLS · GARAGE EQUIPMENT",
-    note: "Service solutions",
-    to: "/inquiry",
-    keywords: "workshop tool garage compressor lift",
-    action: "Enquire about equipment",
-  },
-];
-
-const VEHICLES = [...twoWheelers, ...Object.values(threeWheelers).flat()];
-const BRANDS = [
-  { name: "TVS", className: "tvs", available: true },
-  { name: "BAJAJ", className: "bajaj", available: true },
-  { name: "PIAGGIO", className: "piaggio", available: true },
-  { name: "TATA", className: "tata", available: false },
-  { name: "ASHOK LEYLAND", className: "ashok", available: false },
-  { name: "Mahindra", className: "mahindra", available: false },
-  { name: "MARUTI SUZUKI", className: "maruti", available: false },
-  { name: "HYUNDAI", className: "hyundai", available: false },
-];
 
 function ProductSearch() {
   const [query, setQuery] = useState("");
@@ -96,15 +34,12 @@ function ProductSearch() {
   const searchInput = useRef<HTMLInputElement>(null);
   const term = query.trim().toLowerCase();
   const ranges = term
-    ? RANGES.filter((r) => `${r.name} ${r.brands} ${r.keywords}`.toLowerCase().includes(term))
-    : [];
-  const vehicles = term
-    ? VEHICLES.filter((v) => `${v.name} ${v.description}`.toLowerCase().includes(term)).slice(0, 6)
+    ? RANGES.filter((r) => `${r.name} ${r.summary} ${r.keywords}`.toLowerCase().includes(term))
     : [];
   const parts = term
     ? CATEGORIES.filter((c) => `${c.name} ${c.desc}`.toLowerCase().includes(term)).slice(0, 3)
     : [];
-  const resultCount = ranges.length + vehicles.length + parts.length;
+  const resultCount = ranges.length + parts.length;
 
   useEffect(() => {
     const handleOutside = (event: PointerEvent) => {
@@ -139,7 +74,7 @@ function ProductSearch() {
     >
       <form role="search" aria-label="Search products" onSubmit={submit}>
         <label className="landing-sr-only" htmlFor="landing-product-search">
-          Search products, vehicles or brands
+          Search spare parts and telematics
         </label>
         <input
           id="landing-product-search"
@@ -175,7 +110,7 @@ function ProductSearch() {
               <X size={17} />
             </button>
           </div>
-          {!term && <p>Search a vehicle, brand or part — try “TVS”, “engine” or “workshop”.</p>}
+          {!term && <p>Search a product or part — try “telematics”, “engine” or “workshop”.</p>}
           {term && resultCount === 0 && (
             <div className="landing-no-results">
               <p>No matches for “{query}”. Send us your part number and we’ll help you find it.</p>
@@ -197,33 +132,12 @@ function ProductSearch() {
                   </Link>
                 </li>
               ))}
-              {vehicles.map((vehicle) => (
-                <li key={vehicle.id}>
-                  {vehicle.catalogue.trim().startsWith("https://") ? (
-                    <a href={vehicle.catalogue.trim()} target="_blank" rel="noopener noreferrer">
-                      <span>
-                        {vehicle.name}
-                        <small>Parts catalogue · opens in a new tab</small>
-                      </span>
-                      <ExternalLink size={16} />
-                    </a>
-                  ) : (
-                    <Link to="/inquiry">
-                      <span>
-                        {vehicle.name}
-                        <small>Request parts information</small>
-                      </span>
-                      <ArrowRight size={16} />
-                    </Link>
-                  )}
-                </li>
-              ))}
               {parts.map((part) => (
                 <li key={part.slug}>
                   <Link to="/catalogue">
                     <span>
                       {part.name}
-                      <small>Explore the technical catalogue</small>
+                      <small>Explore part categories</small>
                     </span>
                     <ArrowRight size={16} />
                   </Link>
@@ -232,7 +146,7 @@ function ProductSearch() {
             </ul>
           )}
           <Link className="landing-search-all" to="/products">
-            Browse all available vehicles <ArrowRight size={15} />
+            Browse all products <ArrowRight size={15} />
           </Link>
         </div>
       )}
@@ -361,14 +275,14 @@ function Header() {
                     </Link>
                   ))}
                   <Link to="/products" onClick={closeMenus}>
-                    All available vehicles <ArrowRight size={16} />
+                    All products <ArrowRight size={16} />
                   </Link>
                 </div>
               )}
             </div>
-            <a href="#brands" onClick={closeMenus}>
-              Brands
-            </a>
+            <Link to="/products/telematics" onClick={closeMenus}>
+              Telematics
+            </Link>
             <a href="#export-markets" onClick={closeMenus}>
               Export Markets
             </a>
@@ -394,27 +308,19 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="landing-hero" aria-labelledby="landing-hero-title">
-      <img
-        className="landing-hero-image"
-        src="/images/landing/hero-export.webp"
-        alt="Motorcycle, auto rickshaw, car and commercial trucks at an international shipping port"
-        width={1902}
-        height={827}
-        fetchPriority="high"
-      />
-      <div className="landing-hero-shade" />
-      <div className="landing-container landing-hero-inner">
+    <section className="landing-hero landing-hero--generic" aria-labelledby="landing-hero-title">
+      <div className="landing-container landing-generic-hero-grid">
         <div className="landing-hero-copy">
+          <p className="landing-hero-eyebrow">QUALITY AUTO PARTS. DELIVERED.</p>
           <h1 id="landing-hero-title">
             AUTO PARTS
             <br />
             <span>BEYOND BORDERS</span>
           </h1>
           <p>
-            Reliable Automotive Spare Parts
+            Reliable automotive spare parts.
             <br />
-            from India to the World
+            From India to the world.
           </p>
           <div className="landing-hero-values">
             <div>
@@ -451,31 +357,22 @@ function Hero() {
             </Link>
           </div>
         </div>
-        <p className="landing-hero-script">
-          Keeping
-          <br />
-          <span>the world moving.</span>
-          <i />
-        </p>
-        <div className="landing-india">
-          <span>
-            INDIAN QUALITY
-            <br />
-            FOR A STRONGER
-            <br />
-            TOMORROW
-          </span>
-          <span className="landing-tricolor" aria-label="Made in India">
-            <i />
-            <i />
-            <i />
-          </span>
+        <div className="landing-global-visual">
+          <div className="landing-globe-orbit">
+            <Globe2 strokeWidth={0.7} aria-hidden="true" />
+            <span className="landing-orbit-part">
+              <Cog size={40} />
+            </span>
+            <span className="landing-orbit-truck">
+              <Truck size={40} />
+            </span>
+          </div>
+          <p>Keeping the world moving.</p>
+          <span>SPARE PARTS · GLOBAL SUPPLY · FLEET INTELLIGENCE</span>
+          <Link to="/products/telematics">
+            Discover Intangles telematics <ArrowUpRight size={17} />
+          </Link>
         </div>
-        <p className="landing-hero-signoff">
-          From India.
-          <br />
-          <span>To global roads.</span>
-        </p>
       </div>
     </section>
   );
@@ -501,20 +398,14 @@ function ProductRange() {
             aria-label={`${range.name} — ${range.action}`}
           >
             <div className="landing-range-image">
-              <img
-                src={`/images/landing/${range.image}`}
-                alt=""
-                loading="lazy"
-                width={640}
-                height={640}
-              />
+              <range.icon className="landing-range-symbol" strokeWidth={1.25} aria-hidden="true" />
               <span className="landing-range-arrow">
                 <ArrowUpRight size={19} />
               </span>
             </div>
             <h3>{range.name}</h3>
             <p>
-              {range.brands}
+              {range.summary}
               <br />
               <span>{range.note}</span>
             </p>
@@ -671,74 +562,6 @@ function Company() {
   );
 }
 
-function Brands() {
-  const [expanded, setExpanded] = useState(false);
-  return (
-    <section
-      className="landing-brands landing-container"
-      id="brands"
-      aria-labelledby="landing-brands-title"
-    >
-      <div className="landing-brands-heading">
-        <h2 id="landing-brands-title">OUR KEY BRANDS</h2>
-        <span />
-      </div>
-      <div className="landing-brand-row">
-        {BRANDS.map((brand) => (
-          <Link
-            key={brand.name}
-            to={brand.available ? "/products" : "/inquiry"}
-            className={`landing-brand landing-brand--${brand.className}`}
-            aria-label={`${brand.name} — ${brand.available ? "browse vehicles" : "enquire about parts"}`}
-          >
-            {brand.name === "MARUTI SUZUKI" ? (
-              <>
-                <span className="landing-suzuki-mark">S</span>
-                <span>
-                  MARUTI
-                  <br />
-                  SUZUKI
-                </span>
-              </>
-            ) : (
-              brand.name
-            )}
-          </Link>
-        ))}
-        <button
-          className="landing-outline-button"
-          onClick={() => setExpanded(!expanded)}
-          aria-expanded={expanded}
-          aria-controls="landing-brand-details"
-        >
-          {expanded ? "Close brands" : "View All Brands"}
-          <ChevronDown size={16} className={expanded ? "is-rotated" : ""} />
-        </button>
-      </div>
-      {expanded && (
-        <div className="landing-brand-details" id="landing-brand-details">
-          <div>
-            <h3>Find the right parts for your brand.</h3>
-            <p>
-              Explore our available vehicle catalogues, or send your brand, model and part number to
-              our export team.
-            </p>
-          </div>
-          <div>
-            <Link to="/products">
-              <Check size={17} /> TVS, Bajaj, Piaggio, Honda, Yamaha &amp; Haojue{" "}
-              <ArrowRight size={16} />
-            </Link>
-            <Link to="/inquiry">
-              Enquire about other brands <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      )}
-    </section>
-  );
-}
-
 function Footer() {
   return (
     <footer className="landing-footer">
@@ -858,8 +681,8 @@ export default function LandingPage() {
       <main id="landing-main" tabIndex={-1}>
         <Hero />
         <ProductRange />
+        <TelematicsSpotlight />
         <Company />
-        <Brands />
       </main>
       <Footer />
       <a
